@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import UserContext from "../auth/UserContext";
+import {FamilyContext} from "../auth/UserContext";
 import "./styles/NavBar.css";
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "reactstrap";
@@ -14,17 +14,15 @@ import { Navbar, Nav, NavItem } from "reactstrap";
  */
 
 function NavBar({ logout }) {
-  const { currentUser } = useContext(UserContext);
+  const { currentFamily } = useContext(FamilyContext);
 
   function renderNavLinks(){
-    if(currentUser){
+    if(currentFamily){
         return(
             <Nav className="ml-auto" navbar>
                 <NavItem>
-                <NavLink to="/family/dashboard">family dashboard</NavLink>
-                <NavLink to="/family/members">family members</NavLink>
-                <NavLink to="/family/profile">family profile</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/family/home">home</NavLink>
+                <NavLink to="/family/profile">profile</NavLink>
                 <NavLink to="/" onClick={logout}>Log out</NavLink>
                 </NavItem>
             </Nav> 

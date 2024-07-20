@@ -7,8 +7,8 @@ import {decodeToken} from "react-jwt";
 
 //api and context import
 import PhysiqApi from "./Api.js";
-import UserContext from "./auth/UserContext";
-
+import {FamilyContext} from "./auth/UserContext";
+import { useParams } from "react-router-dom";
 //Route and NavBar imports
 import NavBar from "./navigation/NavBar.jsx";
 import AppRoutes from "./routes/Routes.jsx";
@@ -16,7 +16,7 @@ import Loading from "./navigation/Loading.jsx"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [currentUser, setCurrentUser] =useState();
+  const [currentFamily, setCurrentFamily] =useState();
   const [familyMemberIds, setFamilyMemberIds] = useState([]);
   const [token, setToken] = useLocalStorageState("token");
 
@@ -24,23 +24,23 @@ function App() {
   // this should not run. It only needs to re-run when a user logs out, so
   // the value of the token is a dependency for this effect.
 
-  useEffect(function loadUserInfo() {
+  useEffect(function loadFamilyInfo() {
     console.debug("App useEffect loadUserInfo", "token=", token);
 
-    async function getCurrentUser() {
+    async function getCurrentFamily() {
       if (token) {
         try {
           let { familyId, memberIds } = decodeToken(token);
           // put the token on the Api class so it can use it to call the API.
           PhysiqApi.token = token;
-          let currentUser = await PhysiqApi.getCurrentFamily(familyId);
+          let currentFamily = await PhysiqApi.getCurrentFamily(familyId);
           let familyMemberIds = new Set(memberIds);
-          setCurrentUser(currentUser);
+          setCurrentFamily(currentFamily);
           setFamilyMemberIds(familyMemberIds);
           
         } catch (err) {
           console.error("App loadUserInfo: problem loading", err);
-          setCurrentUser(null);
+          setCurrentFamily(null);
         }
         // setIsLoading(false);
       }
@@ -49,9 +49,10 @@ function App() {
     // data is fetched (or even if an error happens!), this will be set back
     // to false to control the spinner.
     setIsLoading(false);
-    getCurrentUser();
+    getCurrentFamily();
   }, [token]);
 
+   
 
   /** Handles site-wide login.
    *
@@ -68,7 +69,7 @@ function App() {
     }
   }
 
-  async function updateUser(updatedUserData) {
+  async function updateFamily(updatedUserData) {
     try {
       let updatedUser = await PhysiqApi.updateCurrentFamily(currentUser.id, updatedUserData);
       setCurrentUser(updatedUser);
@@ -82,7 +83,7 @@ function App() {
 
   /** Handles site-wide logout. */
   function logout() {
-    setCurrentUser(null);
+    setCurrentFamily(null);
     setToken(null);
   }
 
@@ -108,14 +109,14 @@ function App() {
   if (isLoading) return <Loading/>;
 
   return (
-    <UserContext.Provider value={{currentUser, token, setCurrentUser}}>
+    <FamilyContext.Provider value={{currentFamily, token, setCurrentFamily}}>
       <div className="App">
           <NavBar logout={logout}/>
           <main>
-            <AppRoutes login={login} signup={signup} update={updateUser}/>
+            <AppRoutes login={login} signup={signup} update={updateFamily}/>
           </main>
       </div>
-    </UserContext.Provider>  
+    </FamilyContext.Provider>  
   )
 }
 

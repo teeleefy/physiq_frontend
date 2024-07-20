@@ -1,0 +1,13 @@
+.Signup-Form{
+    background-color: white;
+    width: 25vw;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.Signup-h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px grey;
+}

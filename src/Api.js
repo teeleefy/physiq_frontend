@@ -122,7 +122,7 @@ class PhysiqApi {
     }
         //GET MEMBER
     static async getMember(id) {
-      let res = await this.request(`members`, {id});
+      let res = await this.request(`members/${id}`);
       return res.member;
     }
         //GET MEMBER ALLERGIES

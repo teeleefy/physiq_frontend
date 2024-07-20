@@ -3,7 +3,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15vh;
+  padding-top: 0vh;
+  
   height: calc(100vh - 56px); /* router view - navbar height */
   overflow: scroll;
   color: black;

@@ -18,17 +18,16 @@ nav {
   }
   
   nav a.active {
-    color: red;
     font-weight: bold;
     border-bottom: 5px dotted;
     box-sizing: border-box;
   }
   
-  nav a.active:not(.navbar-brand):hover {
+  nav a.active:not(.navbar-brand):not(.MemberNavBar-link):hover {
     color: red !important;
   }
   
-  nav a:hover {
+  nav a:not(.MemberNavBar-link):hover {
     text-decoration: none;
     color: red;
   }
