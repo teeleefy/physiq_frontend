@@ -7,35 +7,34 @@ import PhysiqApi from "../../Api.js";
 import { useParams } from "react-router-dom";
 import '../styles/Allergies.css'
 import Loading from "../../navigation/Loading";
-
+import Visit from './Visit.jsx';
 
 
 function Visits(){
-    // const [allergies, setAllergies] = useState(null);
-    // const { currentMember } = useContext(MemberContext);
+    const [visits, setVisits] = useState(null);
+    const { currentMember } = useContext(MemberContext);
    
-    // useEffect(function getMemberAllergies(){
-    //     async function getAllergies() {
-    //       let allergies = await PhysiqApi.getMemberAllergies(currentMember.id);
-    //       setAllergies(allergies);
-    //     }
-    //     getAllergies();
-    //   }, []);
+    useEffect(function getMemberVisits(){
+        async function getVisits() {
+          let visits = await PhysiqApi.getMemberVisits(currentMember.id);
+          setVisits(visits);
+        }
+        getVisits();
+      }, []);
     
-    // if(!currentMember) return <Loading />;
-    // if(!allergies) return <Loading />;
+    if(!currentMember) return <Loading />;
+    if(!visits) return <Loading />;
 
 
     return(
     <>
             <section>
-                <h1>This is the Visits page</h1>
-                {/* <ListGroup>
-                    {allergies.map(allergy => (<Allergy allergy={allergy} memberId={currentMember.id} key={allergy.id}/>))}
-                    <Button className="Allergies-btn btn-dark">
-                        <NavLink className="Allergies-navlink" to={`add`}>Add Allergy</NavLink>
+                <ListGroup>
+                    {visits.map(visit => (<Visit visit={visit} memberId={currentMember.id} key={visit.id}/>))}
+                    <Button className="Visits-btn btn-dark">
+                        <NavLink className="Visits-navlink" to={`add`}>Add Visits</NavLink>
                     </Button>
-                </ListGroup> */}
+                </ListGroup>
             </section>
     </>
      )

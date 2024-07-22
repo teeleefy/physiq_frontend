@@ -7,35 +7,34 @@ import PhysiqApi from "../../Api.js";
 import { useParams } from "react-router-dom";
 import '../styles/Allergies.css'
 import Loading from "../../navigation/Loading";
-
+import InsuranceCard from './InsuranceCard.jsx';
 
 
 function Insurance(){
-    // const [allergies, setAllergies] = useState(null);
-    // const { currentMember } = useContext(MemberContext);
+    const [insurance, setInsurance] = useState(null);
+    const { currentMember } = useContext(MemberContext);
    
-    // useEffect(function getMemberAllergies(){
-    //     async function getAllergies() {
-    //       let allergies = await PhysiqApi.getMemberAllergies(currentMember.id);
-    //       setAllergies(allergies);
-    //     }
-    //     getAllergies();
-    //   }, []);
+    useEffect(function getMemberInsurance(){
+        async function getInsurance() {
+          let insurance = await PhysiqApi.getMemberInsurance(currentMember.id);
+          setInsurance(insurance);
+        }
+        getInsurance();
+      }, []);
     
-    // if(!currentMember) return <Loading />;
-    // if(!allergies) return <Loading />;
+    if(!currentMember) return <Loading />;
+    if(!insurance) return <Loading />;
 
 
     return(
     <>
             <section>
-                <h1>This is the Insurance page</h1>
-                {/* <ListGroup>
-                    {allergies.map(allergy => (<Allergy allergy={allergy} memberId={currentMember.id} key={allergy.id}/>))}
-                    <Button className="Allergies-btn btn-dark">
-                        <NavLink className="Allergies-navlink" to={`add`}>Add Allergy</NavLink>
+                <ListGroup>
+                    {insurance.map(ins => (<InsuranceCard insurance={ins} memberId={currentMember.id} key={ins.id}/>))}
+                    <Button className="Insurance-btn btn-dark">
+                        <NavLink className="Insurance-navlink" to={`add`}>Add Insurance</NavLink>
                     </Button>
-                </ListGroup> */}
+                </ListGroup>
             </section>
     </>
      )

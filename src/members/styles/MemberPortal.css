@@ -1,12 +1,22 @@
 #MemberPortal-main {
     width: 90vw;
-    height: 90vh;
+    height: 80vh;
     
     background-color: white;
-    
+    overflow: scroll;
     color: black;
     border: 15px red solid;
     border-radius: 15px;
     padding: 0;
     margin: 0;
   }
+/* 
+.MemberPortal-portal{
+    overflow: scroll;
+  
+} */
+
+/* .MemberPortal-navbar {
+ 
+  
+} */

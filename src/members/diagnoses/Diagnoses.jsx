@@ -5,37 +5,36 @@ import { Button, Card, CardBody, CardTitle, CardText, ListGroup } from "reactstr
 import { NavLink } from "react-router-dom";
 import PhysiqApi from "../../Api.js";
 import { useParams } from "react-router-dom";
-import '../styles/Allergies.css'
+// import '../styles/Allergies.css'
 import Loading from "../../navigation/Loading";
-
+import Diagnosis from './Diagnosis.jsx';
 
 
 function Diagnoses(){
-    // const [allergies, setAllergies] = useState(null);
-    // const { currentMember } = useContext(MemberContext);
+    const [diagnoses, setDiagnoses] = useState(null);
+    const { currentMember } = useContext(MemberContext);
    
-    // useEffect(function getMemberAllergies(){
-    //     async function getAllergies() {
-    //       let allergies = await PhysiqApi.getMemberAllergies(currentMember.id);
-    //       setAllergies(allergies);
-    //     }
-    //     getAllergies();
-    //   }, []);
+    useEffect(function getMemberDiagnoses(){
+        async function getDiagnoses() {
+          let diagnoses = await PhysiqApi.getMemberDiagnoses(currentMember.id);
+          setDiagnoses(diagnoses);
+        }
+        getDiagnoses();
+      }, []);
     
-    // if(!currentMember) return <Loading />;
-    // if(!allergies) return <Loading />;
+    if(!currentMember) return <Loading />;
+    if(!diagnoses) return <Loading />;
 
 
     return(
     <>
             <section>
-                <h1>This is the Diagnoses page</h1>
-                {/* <ListGroup>
-                    {allergies.map(allergy => (<Allergy allergy={allergy} memberId={currentMember.id} key={allergy.id}/>))}
-                    <Button className="Allergies-btn btn-dark">
-                        <NavLink className="Allergies-navlink" to={`add`}>Add Allergy</NavLink>
+                <ListGroup>
+                    {diagnoses.map(diagnosis => (<Diagnosis diagnosis={diagnosis} memberId={currentMember.id} key={diagnosis.id}/>))}
+                    <Button className="Diagnoses-btn btn-dark">
+                        <NavLink className="Diagnoses-navlink" to={`add`}>Add Diagnosis</NavLink>
                     </Button>
-                </ListGroup> */}
+                </ListGroup>
             </section>
     </>
      )

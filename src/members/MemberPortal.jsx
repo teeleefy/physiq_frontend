@@ -54,8 +54,11 @@ function MemberPortal() {
       <div className="MemberPortal">
           
           <div id="MemberPortal-main">
-            <MemberNavBar/>
-            <MemberRoutes update={updateMember}/>
+            <div className="MemberPortal-navbar"><MemberNavBar/></div>
+            {/* <div className="MemberPortal-portal"> */}
+              <MemberRoutes update={updateMember}/>  
+            {/* </div> */}
+            
           </div>
       </div>
     </MemberContext.Provider>  

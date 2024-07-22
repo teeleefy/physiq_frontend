@@ -7,35 +7,34 @@ import PhysiqApi from "../../Api.js";
 import { useParams } from "react-router-dom";
 import '../styles/Allergies.css'
 import Loading from "../../navigation/Loading";
-
+import Symptom from './Symptom.jsx';
 
 
 function Symptoms(){
-    // const [allergies, setAllergies] = useState(null);
-    // const { currentMember } = useContext(MemberContext);
+    const [symptoms, setSymptoms] = useState(null);
+    const { currentMember } = useContext(MemberContext);
    
-    // useEffect(function getMemberAllergies(){
-    //     async function getAllergies() {
-    //       let allergies = await PhysiqApi.getMemberAllergies(currentMember.id);
-    //       setAllergies(allergies);
-    //     }
-    //     getAllergies();
-    //   }, []);
+    useEffect(function getMemberSymptoms(){
+        async function getSymptoms() {
+          let symptoms = await PhysiqApi.getMemberSymptoms(currentMember.id);
+          setSymptoms(symptoms);
+        }
+        getSymptoms();
+      }, []);
     
-    // if(!currentMember) return <Loading />;
-    // if(!allergies) return <Loading />;
+    if(!currentMember) return <Loading />;
+    if(!symptoms) return <Loading />;
 
 
     return(
     <>
             <section>
-                <h1>This is the Symptoms page</h1>
-                {/* <ListGroup>
-                    {allergies.map(allergy => (<Allergy allergy={allergy} memberId={currentMember.id} key={allergy.id}/>))}
-                    <Button className="Allergies-btn btn-dark">
-                        <NavLink className="Allergies-navlink" to={`add`}>Add Allergy</NavLink>
+                <ListGroup>
+                    {symptoms.map(symptom => (<Symptom symptom={symptom} memberId={currentMember.id} key={symptom.id}/>))}
+                    <Button className="Symptoms-btn btn-dark">
+                        <NavLink className="Symptoms-navlink" to={`add`}>Add Symptoms</NavLink>
                     </Button>
-                </ListGroup> */}
+                </ListGroup>
             </section>
     </>
      )
