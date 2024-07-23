@@ -5,15 +5,19 @@
 }
 
 .Med-label {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .Med-h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
 .Meds-navlink {
     text-decoration: none;
     color: white;
+}
+
+.Med-date-input {
+    width: 20vw;
 }

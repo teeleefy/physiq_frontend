@@ -1,0 +1,146 @@
+import { Form, FormGroup, Input, Button, Label, Alert } from "reactstrap";
+import { useState, useContext } from "react";
+import {MemberContext} from "../../auth/UserContext.js";
+import PhysiqApi from "../../Api.js";
+import { useNavigate } from "react-router-dom";
+import '../styles/Doctor.css'
+
+function DoctorNew(){
+    let navigate = useNavigate();
+    const { currentMember } = useContext(MemberContext);
+    const [formMessages, setFormMessages] = useState([]);
+    const [updateSuccess, setUpdateSuccess] =useState();
+    const [formData, setFormData] = useState({name: "", specialty: "", clinic: "", address:"", phone:"", notes: ""});
+
+    async function addDoctor() {
+        try {
+          let newDoctor= await PhysiqApi.addMemberDoctor(currentMember.id, formData);
+          return { success: true };
+        } catch (errors) {
+          console.error("Add Doctor failed", errors);
+          return { success: false, errors };
+        }
+      }
+
+    async function handleSubmit(evt){
+        evt.preventDefault();
+        // console.log(formData);
+        let result = await addDoctor();
+        
+        if(result.success){
+        //    alert("Saved Changes!") 
+           setFormMessages(['Doctor Added!'])
+           setUpdateSuccess(true);
+           navigate("..", { relative: "path"});
+        }
+        else{
+            setFormMessages(result.errors);
+            setUpdateSuccess(false);
+        }
+    };
+
+  
+    /** Update local state w/curr state of input elem */
+  
+    const handleChange = evt => {
+      const { name, value }= evt.target;
+      setFormData(fData => ({
+        ...fData,
+        [name]: value
+      }));
+    };
+
+    return(
+        <>
+            <Form className="DoctorNew-Form m-4 pt-1" >
+            <h1 className="Doctor-h1">Add Doctor:</h1>
+            <p className="text-secondary">Fields marked with <span className="text-danger">*</span> are required.</p>
+            <FormGroup>
+                <Label className="Doctor-label" for="name" >
+                    <b>Doctor Name</b><span className="text-danger">*</span>
+                </Label>
+                <Input
+                id="name"
+                name="name"
+                value={formData.name}
+                placeholder="Enter doctor name..."
+                type="text"
+                onChange={handleChange}
+                />
+            </FormGroup>
+            <FormGroup>
+                <Label className="Doctor-label" for="specialty">
+                    <b>Specialty</b><span className="text-danger">*</span>
+                </Label>
+                <Input
+                id="specialty"
+                name="specialty"
+                value={formData.specialty}
+                placeholder="Enter specialty..."
+                type="text"
+                onChange={handleChange}
+                />
+                </FormGroup>
+            <FormGroup>
+                <Label className="Doctor-label" for="clinic">
+                    <b>Clinic</b>
+                </Label>
+                <Input
+                id="clinic"
+                name="clinic"
+                value={formData.clinic}
+                placeholder="Enter clinic..."
+                type="text"
+                onChange={handleChange}
+                />
+            </FormGroup>
+            <FormGroup>
+                <Label className="Doctor-label" for="address">
+                    <b>Address</b>
+                </Label>
+                <Input
+                id="address"
+                name="address"
+                value={formData.address}
+                placeholder="Enter address..."
+                type="text"
+                onChange={handleChange}
+                />
+            </FormGroup>
+            <FormGroup>
+                <Label className="Doctor-label" for="phone">
+                    <b>Phone</b>
+                </Label>
+                <Input
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                placeholder="Enter phone..."
+                type="text"
+                onChange={handleChange}
+                />
+            </FormGroup>
+            <FormGroup>
+                <Label className="Doctor-label" for="notes">
+                    <b>Notes</b>
+                </Label>
+                <Input
+                id="notes"
+                name="notes"
+                value={formData.notes}
+                placeholder="Enter notes..."
+                type="text"
+                onChange={handleChange}
+                />
+            </FormGroup>
+                {formMessages.length
+                    ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
+                    : null
+                }
+                
+                <Button className="btn-dark" onClick={handleSubmit}>Add Doctor</Button>
+            </Form>
+        </>
+    )}
+    
+export default DoctorNew;

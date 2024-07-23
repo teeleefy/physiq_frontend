@@ -47,7 +47,19 @@ function MemberPortal() {
   if (isLoading) return <Loading/>;
 
 
-
+  function getDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    if(month<10){
+        month = `0${month}`
+    }
+    let date = today.getDate();
+    if(date<10){
+        date = `0${date}`
+    }
+    return `${year}-${month}-${date}`;
+  }
   
   return (
     <MemberContext.Provider value={{currentMember, setCurrentMember}}>
@@ -56,7 +68,7 @@ function MemberPortal() {
           <div id="MemberPortal-main">
             <div className="MemberPortal-navbar"><MemberNavBar/></div>
             {/* <div className="MemberPortal-portal"> */}
-              <MemberRoutes update={updateMember}/>  
+              <MemberRoutes update={updateMember} getDate={getDate}/>  
             {/* </div> */}
             
           </div>

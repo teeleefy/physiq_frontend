@@ -110,7 +110,7 @@ function GoalUpdate(){
     return(
         <>
             <Form className="Goal-Form m-4" >
-            <h1 className="Goal-h1">Update Goal</h1>
+            <h1 className="Goal-h1">Update Goal:</h1>
             <p className="text-secondary">Fields marked with <span className="text-danger">*</span> are required.</p>
             <FormGroup>
                 <Label className="Goal-label" for="goalName" >

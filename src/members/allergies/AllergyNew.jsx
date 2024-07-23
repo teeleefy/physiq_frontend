@@ -3,21 +3,21 @@ import { useState, useContext } from "react";
 import {MemberContext} from "../../auth/UserContext.js";
 import PhysiqApi from "../../Api.js";
 import { useNavigate } from "react-router-dom";
-import '../styles/Goal.css'
+import '../styles/Allergy.css'
 
-function GoalNew(){
+function AllergyNew(){
     let navigate = useNavigate();
     const { currentMember } = useContext(MemberContext);
     const [formMessages, setFormMessages] = useState([]);
     const [updateSuccess, setUpdateSuccess] =useState();
-    const [formData, setFormData] = useState({goalName: "", goalDetails: ""});
+    const [formData, setFormData] = useState({name: "", reaction: "", notes: ""});
 
-    async function addGoal() {
+    async function addAllergy() {
         try {
-          let newGoal= await PhysiqApi.addMemberGoal(currentMember.id, formData);
+          let newAllergy= await PhysiqApi.addMemberAllergy(currentMember.id, formData);
           return { success: true };
         } catch (errors) {
-          console.error("Add Goal failed", errors);
+          console.error("Add Allergy failed", errors);
           return { success: false, errors };
         }
       }
@@ -25,11 +25,11 @@ function GoalNew(){
     async function handleSubmit(evt){
         evt.preventDefault();
         // console.log(formData);
-        let result = await addGoal();
+        let result = await addAllergy();
         
         if(result.success){
         //    alert("Saved Changes!") 
-           setFormMessages(['Goal Added!'])
+           setFormMessages(['Allergy Added!'])
            setUpdateSuccess(true);
            navigate("..", { relative: "path"});
         }
@@ -52,43 +52,56 @@ function GoalNew(){
 
     return(
         <>
-            <Form className="GoalNew-Form m-4" >
-            <h1 className="Goal-h1">Add Goal:</h1>
+            <Form className="AllergyNew-Form m-4" >
+            <h1 className="Allergy-h1">Add Allergy:</h1>
             <p className="text-secondary">Fields marked with <span className="text-danger">*</span> are required.</p>
             <FormGroup>
-                <Label className="Goal-label" for="goalName" >
-                    <b>Goal Name </b><span className="text-danger">*</span>
+                <Label className="Allergy-label" for="name" >
+                    <b>Allergy Name</b><span className="text-danger">*</span>
                 </Label>
                 <Input
-                id="goalName"
-                name="goalName"
-                value={formData.goalName}
-                placeholder="Enter goal name..."
+                id="name"
+                name="name"
+                value={formData.name}
+                placeholder="Enter allergy name..."
                 type="text"
                 onChange={handleChange}
                 />
             </FormGroup>
             <FormGroup>
-                <Label className="Goal-label" for="goalDetails">
-                    <b>Details</b>
+                <Label className="Allergy-label" for="reaction">
+                    <b>Reaction</b><span className="text-danger">*</span>
                 </Label>
                 <Input
-                id="goalDetails"
-                name="goalDetails"
-                value={formData.goalDetails}
-                placeholder="Enter goal details..."
+                id="reaction"
+                name="reaction"
+                value={formData.reaction}
+                placeholder="Enter reaction..."
                 type="text"
                 onChange={handleChange}
                 />
                 </FormGroup>
+            <FormGroup>
+                <Label className="Allergy-label" for="notes">
+                    <b>Notes</b>
+                </Label>
+                <Input
+                id="notes"
+                name="notes"
+                value={formData.notes}
+                placeholder="Enter notes..."
+                type="text"
+                onChange={handleChange}
+                />
+            </FormGroup>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null
                 }
                 
-                <Button className="btn-dark" onClick={handleSubmit}>Add Goal</Button>
+                <Button className="btn-dark" onClick={handleSubmit}>Add Allergy</Button>
             </Form>
         </>
     )}
     
-export default GoalNew;
+export default AllergyNew;

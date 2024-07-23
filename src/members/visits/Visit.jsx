@@ -21,10 +21,9 @@ function Visit({visit, memberId}){
                             {visit.title}
                         </NavLink></p>
                         <p><b>Date:</b> {visit.date}</p>
-                        <p><b>Clinic Visited:</b> {visit.clinic}</p>
                         <p><b>Doctor Seen:</b> {visit.doctor}</p>
-                        <p><b>Description:</b> {visit.description}</p>
-                        <p><b>Notes:</b> {visit.notes}</p>
+                        <p><b>Clinic Visited:</b> {visit.clinic}</p>
+                        <p><b>Notes:</b> {visit.description}</p>
                     </CardText>
                 </CardBody>
             </Card>

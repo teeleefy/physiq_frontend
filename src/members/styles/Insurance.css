@@ -5,15 +5,19 @@
 }
 
 .Insurance-label {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .Insurance-h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
 .Insurance-navlink {
     text-decoration: none;
     color: white;
+}
+
+.Insurance-date-input {
+    width: 20vw;
 }
