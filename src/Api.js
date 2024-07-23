@@ -115,6 +115,7 @@ class PhysiqApi {
 
 
     /** GET ROUTES */
+        //------------GET SINGLE THING-----------------
         //GET FAMILY
     static async getCurrentFamily(familyId) {
       let res = await this.request(`families/${familyId}`);
@@ -125,6 +126,53 @@ class PhysiqApi {
       let res = await this.request(`members/${id}`);
       return res.member;
     }
+        //GET MEMBER ALLERGY
+    static async getMemberAllergy(id, allergyId) {
+        let res = await this.request(`members/${id}/allergies/${allergyId}`);
+        return res.allergy;
+      }
+        //GET MEMBER DIAGNOSIS
+    static async getMemberDiagnosis(id, diagnosisId) {
+        let res = await this.request(`members/${id}/diagnoses/${diagnosisId}`);
+        return res.diagnosis;
+      }
+        //GET MEMBER DOCTOR
+    static async getMemberDoctor(id, doctorId) {
+        let res = await this.request(`members/${id}/doctors/${doctorId}`);
+        return res.doctor;
+      }
+        //GET MEMBER IMAGE
+    static async getMemberImage(id, imageId) {
+        let res = await this.request(`members/${id}/images/${imageId}`);
+        return res.image;
+      }
+        //GET MEMBER INSURANCE
+    static async getMemberInsurance(id, insuranceId) {
+        let res = await this.request(`members/${id}/insurance/${insuranceId}`);
+        return res.insurance;
+      }
+        //GET MEMBER GOAL
+    static async getMemberGoal(id, goalId) {
+        let res = await this.request(`members/${id}/goals/${goalId}`);
+        return res.goal;
+      }
+        //GET MEMBER MED
+    static async getMemberMed(id, medId) {
+        let res = await this.request(`members/${id}/meds/${medId}`);
+        return res.med;
+      }
+        //GET MEMBER SYMPTOM
+    static async getMemberSymptom(id, symptomId) {
+        let res = await this.request(`members/${id}/symptoms/${symptomId}`);
+        return res.symptom;
+      }
+        //GET MEMBER VISIT
+    static async getMemberVisit(id, visitId) {
+        let res = await this.request(`members/${id}/visits/${visitId}`);
+        return res.visit;
+      }
+
+    //------------GET ALL-----------------
         //GET MEMBER ALLERGIES
     static async getMemberAllergies(id) {
       let res = await this.request(`members/${id}/allergies`);
@@ -170,13 +218,10 @@ class PhysiqApi {
       let res = await this.request(`members/${id}/goals`);
       return res.goals;
     }
-  
-        //GET MEMBER GOAL
-    static async getMemberGoal(id, goalId) {
-      let res = await this.request(`members/${id}/goals/${goalId}`);
-      return res.goal;
-    }
-  
+        
+
+
+
 
 
 
