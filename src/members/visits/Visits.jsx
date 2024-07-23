@@ -5,10 +5,9 @@ import { Button, Card, CardBody, CardTitle, CardText, ListGroup } from "reactstr
 import { NavLink } from "react-router-dom";
 import PhysiqApi from "../../Api.js";
 import { useParams } from "react-router-dom";
-import '../styles/Allergies.css'
 import Loading from "../../navigation/Loading";
 import Visit from './Visit.jsx';
-
+import '../styles/Visit.css'
 
 function Visits(){
     const [visits, setVisits] = useState(null);
@@ -31,11 +30,13 @@ function Visits(){
             <section>
                 <ListGroup>
                     {visits.map(visit => (<Visit visit={visit} memberId={currentMember.id} key={visit.id}/>))}
-                    <Button className="Visits-btn btn-dark">
-                        <NavLink className="Visits-navlink" to={`add`}>Add Visits</NavLink>
-                    </Button>
+                    
                 </ListGroup>
+                <Button className="Visits-btn btn-dark m-3">
+                    <NavLink className="Visits-navlink" to={`add`}>Add Visits</NavLink>
+                </Button>
             </section>
+            
     </>
      )
 }

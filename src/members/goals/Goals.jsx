@@ -5,10 +5,9 @@ import { Button, Card, CardBody, CardTitle, CardText, ListGroup } from "reactstr
 import { NavLink } from "react-router-dom";
 import PhysiqApi from "../../Api.js";
 import { useParams } from "react-router-dom";
-import '../styles/Allergies.css'
 import Loading from "../../navigation/Loading";
 import Goal from './Goal.jsx';
-
+import '../styles/Goal.css'
 
 function Goals(){
     const [goals, setGoals] = useState(null);
@@ -29,12 +28,14 @@ function Goals(){
     return(
     <>
             <section>
+                
                 <ListGroup>
                     {goals.map(goal => (<Goal goal={goal} memberId={currentMember.id} key={goal.id}/>))}
-                    <Button className="Goals-btn btn-dark">
-                        <NavLink className="Goals-navlink" to={`add`}>Add Goals</NavLink>
-                    </Button>
+                    
                 </ListGroup>
+                <Button className="btn-dark m-3 ">
+                    <NavLink className="Goals-navlink" to={`add`}>Add Goals</NavLink>
+                </Button>
             </section>
     </>
      )

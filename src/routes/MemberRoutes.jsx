@@ -10,6 +10,8 @@ import Meds from "../members/meds/Meds.jsx";
 import Symptoms from "../members/symptoms/Symptoms.jsx";
 import Visits from "../members/visits/Visits.jsx";
 import Goals from "../members/goals/Goals.jsx";
+import GoalNew from "../members/goals/GoalNew.jsx";
+import GoalUpdate from "../members/goals/GoalUpdate.jsx";
 
 function MemberRoutes() {
     return (
@@ -24,6 +26,8 @@ function MemberRoutes() {
                 <Route path="/symptoms" element={<Symptoms/>}/>
                 <Route path="/visits" element={<Visits/>}/>
                 <Route path="/goals" element={<Goals/>}/>
+                <Route path="/goals/add" element={<GoalNew/>}/>
+                <Route path="/goals/:goalId" element={<GoalUpdate/>}/>
             </Routes>
         </div>
     );

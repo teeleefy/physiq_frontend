@@ -5,10 +5,9 @@ import { Button, Card, CardBody, CardTitle, CardText, ListGroup } from "reactstr
 import { NavLink } from "react-router-dom";
 import PhysiqApi from "../../Api.js";
 import { useParams } from "react-router-dom";
-import '../styles/Allergies.css'
 import Loading from "../../navigation/Loading";
 import Symptom from './Symptom.jsx';
-
+import '../styles/Symptom.css'
 
 function Symptoms(){
     const [symptoms, setSymptoms] = useState(null);
@@ -31,10 +30,11 @@ function Symptoms(){
             <section>
                 <ListGroup>
                     {symptoms.map(symptom => (<Symptom symptom={symptom} memberId={currentMember.id} key={symptom.id}/>))}
-                    <Button className="Symptoms-btn btn-dark">
-                        <NavLink className="Symptoms-navlink" to={`add`}>Add Symptoms</NavLink>
-                    </Button>
+                    
                 </ListGroup>
+                <Button className="Symptoms-btn btn-dark m-3">
+                    <NavLink className="Symptoms-navlink" to={`add`}>Add Symptoms</NavLink>
+                </Button>
             </section>
     </>
      )

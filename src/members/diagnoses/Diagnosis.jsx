@@ -5,7 +5,7 @@ import {
     ListGroupItem
   } from "reactstrap";
   import { NavLink } from "react-router-dom";
-// import '../styles/Allergy.css'
+import '../styles/Diagnosis.css'
 
 
 function Diagnosis({diagnosis, memberId}){

@@ -5,14 +5,14 @@ import {
     ListGroupItem
   } from "reactstrap";
   import { NavLink } from "react-router-dom";
-// import '../styles/Allergy.css'
+import '../styles/Goal.css'
 
 
 function Goal({goal, memberId}){
 
     return(
         <>
-            <ListGroupItem>
+            <ListGroupItem className="Goal-card">
             <Card className="Goal-card">
                 <CardBody>
                     <CardText>

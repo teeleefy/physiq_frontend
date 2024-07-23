@@ -1,19 +1,19 @@
-.Allergy-card {
-    height: 15vh;
+.Symptom-card {
+    height: 25vh;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
-.Allergy-label {
+.Symptom-label {
     font-size: 1.5rem;
 }
 
-.Allergy-h1 {
+.Symptom-h1 {
     font-size: 3rem;
     font-weight: 600;
 }
 
-.Allergies-navlink {
+.Symptoms-navlink {
     text-decoration: none;
     color: white;
 }

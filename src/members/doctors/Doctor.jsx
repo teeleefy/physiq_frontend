@@ -5,15 +5,15 @@ import {
     ListGroupItem
   } from "reactstrap";
   import { NavLink } from "react-router-dom";
-// import '../styles/Allergy.css'
+  import '../styles/Doctor.css'
 
 
 function Doctor({doctor, memberId}){
 
     return(
         <>
-            <ListGroupItem>
-            <Card className="Doctor-card">
+            <ListGroupItem className="Doctor-card">
+            <Card >
                 <CardBody>
                     <CardText>
                         <p><b>Doctor Name:</b> <NavLink className="Doctor-name" to={`/member/${memberId}/doctors/${doctor.id}`} key={doctor.id}>

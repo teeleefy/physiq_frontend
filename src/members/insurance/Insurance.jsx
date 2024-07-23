@@ -5,10 +5,9 @@ import { Button, Card, CardBody, CardTitle, CardText, ListGroup } from "reactstr
 import { NavLink } from "react-router-dom";
 import PhysiqApi from "../../Api.js";
 import { useParams } from "react-router-dom";
-import '../styles/Allergies.css'
 import Loading from "../../navigation/Loading";
 import InsuranceCard from './InsuranceCard.jsx';
-
+import '../styles/Insurance.css'
 
 function Insurance(){
     const [insurance, setInsurance] = useState(null);
@@ -31,10 +30,11 @@ function Insurance(){
             <section>
                 <ListGroup>
                     {insurance.map(ins => (<InsuranceCard insurance={ins} memberId={currentMember.id} key={ins.id}/>))}
-                    <Button className="Insurance-btn btn-dark">
-                        <NavLink className="Insurance-navlink" to={`add`}>Add Insurance</NavLink>
-                    </Button>
+                    
                 </ListGroup>
+                <Button className="Insurance-btn btn-dark m-3">
+                    <NavLink className="Insurance-navlink" to={`add`}>Add Insurance</NavLink>
+                </Button>
             </section>
     </>
      )

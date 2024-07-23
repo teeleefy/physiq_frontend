@@ -1,19 +1,19 @@
-.Allergy-card {
-    height: 15vh;
+.Insurance-card {
+    height: 40vh;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
-.Allergy-label {
+.Insurance-label {
     font-size: 1.5rem;
 }
 
-.Allergy-h1 {
+.Insurance-h1 {
     font-size: 3rem;
     font-weight: 600;
 }
 
-.Allergies-navlink {
+.Insurance-navlink {
     text-decoration: none;
     color: white;
 }

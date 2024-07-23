@@ -171,6 +171,12 @@ class PhysiqApi {
       return res.goals;
     }
   
+        //GET MEMBER GOAL
+    static async getMemberGoal(id, goalId) {
+      let res = await this.request(`members/${id}/goals/${goalId}`);
+      return res.goal;
+    }
+  
 
 
 
