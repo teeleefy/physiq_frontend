@@ -1,0 +1,18 @@
+#Footer-nav{
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+
+}
+
+.Footer-navlink{
+    padding: 0 2rem 0 2rem;
+    font-size: 2rem;
+    color: red;
+    text-shadow: 4px 4px 3px black;
+}
+
+.Footer-navlink:hover {
+    color: black;
+    text-shadow: 3px 3px 5px red;
+  }

@@ -11,6 +11,7 @@ import {FamilyContext} from "./auth/UserContext";
 import { useParams } from "react-router-dom";
 //Route and NavBar imports
 import NavBar from "./navigation/NavBar.jsx";
+import Footer from "./navigation/Footer.jsx";
 import AppRoutes from "./routes/Routes.jsx";
 import Loading from "./navigation/Loading.jsx"
 
@@ -113,11 +114,16 @@ function App() {
   return (
     <FamilyContext.Provider value={{currentFamily, token, setCurrentFamily, familyMemberIds}}>
       <div className="App">
-          <NavBar logout={logout}/>
+        <div id="main-navbar"><NavBar logout={logout}/></div>
+          
+          
           <main>
             <AppRoutes login={login} signup={signup} update={updateFamily}/>
+            
           </main>
+         <div id="footer"><Footer /></div> 
       </div>
+      
     </FamilyContext.Provider>  
   )
 }

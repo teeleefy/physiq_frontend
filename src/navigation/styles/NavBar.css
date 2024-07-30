@@ -16,8 +16,10 @@ nav {
     margin-left: 1rem;
     font-size: 1.5rem;
   }
+
+
   
-  nav a.active {
+  nav a.active:not(#Navbar-logout):not(.navbar-brand) {
     font-weight: bold;
     border-bottom: 5px dotted;
     box-sizing: border-box;

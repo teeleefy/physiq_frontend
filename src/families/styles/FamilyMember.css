@@ -1,0 +1,15 @@
+.FamilyMember-card {
+    height: 15vh;
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.FamilyMember-label {
+    font-size: 1.5rem;
+}
+
+.FamilyMember-h1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
