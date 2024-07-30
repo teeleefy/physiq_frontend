@@ -24,7 +24,7 @@ function MemberPortal() {
                 setCurrentMember(member);
             }catch (err) {
             console.error("App loadUserInfo: problem loading", err);
-            setCurrentFamily(null);
+            setCurrentMember(null);
             }
         }
        setIsLoading(false); 
@@ -68,7 +68,7 @@ function MemberPortal() {
           <div id="MemberPortal-main">
             <div className="MemberPortal-navbar"><MemberNavBar/></div>
             {/* <div className="MemberPortal-portal"> */}
-              <MemberRoutes update={updateMember} getDate={getDate}/>  
+              <MemberRoutes updateMember={updateMember} getDate={getDate}/>  
             {/* </div> */}
             
           </div>

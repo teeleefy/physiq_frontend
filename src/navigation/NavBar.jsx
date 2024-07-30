@@ -21,8 +21,8 @@ function NavBar({ logout }) {
         return(
             <Nav className="ml-auto" navbar>
                 <NavItem>
-                <NavLink to="/family/home">home</NavLink>
-                <NavLink to="/family/profile">profile</NavLink>
+                <NavLink to="/home">home</NavLink>
+                <NavLink to="/profile">profile</NavLink>
                 <NavLink to="/" onClick={logout}>Log out</NavLink>
                 </NavItem>
             </Nav> 

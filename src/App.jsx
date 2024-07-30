@@ -31,10 +31,12 @@ function App() {
       if (token) {
         try {
           let { familyId, memberIds } = decodeToken(token);
+          console.log("memberIds from Token",memberIds);
           // put the token on the Api class so it can use it to call the API.
           PhysiqApi.token = token;
           let currentFamily = await PhysiqApi.getCurrentFamily(familyId);
-          let familyMemberIds = new Set(memberIds);
+          let familyMemberIds = memberIds;
+          console.log("familyMemberIds",familyMemberIds);
           setCurrentFamily(currentFamily);
           setFamilyMemberIds(familyMemberIds);
           
@@ -109,7 +111,7 @@ function App() {
   if (isLoading) return <Loading/>;
 
   return (
-    <FamilyContext.Provider value={{currentFamily, token, setCurrentFamily}}>
+    <FamilyContext.Provider value={{currentFamily, token, setCurrentFamily, familyMemberIds}}>
       <div className="App">
           <NavBar logout={logout}/>
           <main>

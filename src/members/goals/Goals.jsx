@@ -31,7 +31,6 @@ function Goals(){
                 
                 <ListGroup>
                     {goals.map(goal => (<Goal goal={goal} memberId={currentMember.id} key={goal.id}/>))}
-                    
                 </ListGroup>
                 <Button className="btn-dark m-3 ">
                     <NavLink className="Goals-navlink" to={`add`}>Add Goals</NavLink>

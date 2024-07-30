@@ -25,7 +25,6 @@ function DiagnosisNew({getDate}){
 
     async function handleSubmit(evt){
         evt.preventDefault();
-        // console.log(formData);
         let result = await addDiagnosis();
         
         if(result.success){

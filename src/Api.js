@@ -147,7 +147,7 @@ class PhysiqApi {
         return res.image;
       }
         //GET MEMBER INSURANCE
-    static async getMemberInsurance(id, insuranceId) {
+    static async getMemberSingleInsurance(id, insuranceId) {
         let res = await this.request(`members/${id}/insurance/${insuranceId}`);
         return res.insurance;
       }

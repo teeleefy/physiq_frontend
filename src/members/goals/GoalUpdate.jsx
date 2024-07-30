@@ -10,7 +10,6 @@ function GoalUpdate(){
     let navigate = useNavigate();
     let { goalId } = useParams();
     const { currentMember } = useContext(MemberContext);
-    const [currentGoal, setCurrentGoal] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [formMessages, setFormMessages] = useState([]);
     const [updateSuccess, setUpdateSuccess] =useState();
@@ -22,11 +21,12 @@ function GoalUpdate(){
             if(currentMember && goalId){
                 try{
                     let goal = await PhysiqApi.getMemberGoal(currentMember.id, goalId);
-                    setCurrentGoal(goal);
+                    if(!goal.goalDetails){
+                      goal.goalDetails = "";
+                    }
                     setFormData({goalName: goal.goalName, goalDetails: goal.goalDetails})
                 }catch (err) {
                 console.error("App loadGoalInfo: problem loading", err);
-                setCurrentGoal(null);
                 }
             }
            setIsLoading(false); 
@@ -41,7 +41,6 @@ function GoalUpdate(){
     async function updateGoal() {
         try {
           let updatedGoal= await PhysiqApi.updateGoal(currentMember.id, goalId, formData);
-          setCurrentGoal(updatedGoal);
           return { success: true };
         } catch (errors) {
           console.error("Save failed", errors);
@@ -52,7 +51,6 @@ function GoalUpdate(){
 
     async function handleSubmit(evt){
         evt.preventDefault();
-        // console.log(formData);
         let result = await updateGoal();
         
         if(result.success){
@@ -78,7 +76,6 @@ function GoalUpdate(){
 
     async function handleDelete(evt){
         evt.preventDefault();
-        // console.log(formData);
         const shouldDelete = confirm("Are you sure you want to delete?")
 
         if(shouldDelete){
@@ -106,6 +103,8 @@ function GoalUpdate(){
         [name]: value
       }));
     };
+
+    if(isLoading) return <Loading />;
 
     return(
         <>

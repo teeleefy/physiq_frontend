@@ -4,9 +4,9 @@ import { useState, useContext } from "react";
 import {FamilyContext} from "./auth/UserContext";
 import './styles/Home.css'
 
-function Home(){
+function Profile(){
     let { currentFamily } = useContext(FamilyContext);
-    
+
     function renderFamilyMembers(){
         if(currentFamily.familyMembers){
             return (
@@ -69,4 +69,4 @@ function Home(){
  )
 }
 
-export default Home;
+export default Profile;

@@ -5,13 +5,9 @@ import Home from "../Home";
 import Login from "../auth/LoginForm";
 import Signup from "../auth/SignupForm";
 import MemberPortal from "../members/MemberPortal"
-import Allergies from "../members/allergies/Allergies.jsx";
-// import Profile from "../Profile";
-// import Companies from "../companies/CompaniesList.jsx";
-// import CompanyJobs from "../companies/CompanyJobs.jsx";
-// import Jobs from "../jobs/JobsList.jsx";
-// import NotFound from "../NotFound";
-// import PrivateRoute from "./PrivateRoute";
+import Profile from "../Profile";
+import NotFound from "../NotFound";
+import PrivateRoute from "./PrivateRoute";
 
 
 function AppRoutes({ login, signup, update }) {
@@ -19,11 +15,12 @@ function AppRoutes({ login, signup, update }) {
         <div className="pt-5">
           <Routes>
             <Route path="/" element={<Home/>}/>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/profile" element={<Profile/>}/>
             <Route path="/login" element={<Login login={login}/>}/>
             <Route path="/signup" element={<Signup signup={signup}/>}/>
             <Route path="/member/:id/*" element={<MemberPortal />}/>
-            {/* <Route path="/member/:id/allergies" element={<Allergies/>}/> */}
-            {/* <Route path="/member/:id/allergies" element={<Allergies />}/> */}
+            <Route path="*" element={<NotFound/>}/>
             {/* <Route path="/companies" element={<PrivateRoute><Companies/></PrivateRoute>}/>
             <Route path="/jobs" element={<PrivateRoute><Jobs/></PrivateRoute>}/>
             <Route path="/profile" element={<PrivateRoute><Profile update={update}/></PrivateRoute>}/>
