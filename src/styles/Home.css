@@ -1,4 +1,14 @@
-
+#Home-main {
+    width: 90vw;
+    height: 82vh;
+    background-color: white;
+    overflow: scroll;
+    color: black;
+    border: 15px red solid;
+    border-radius: 15px;
+    padding: 0;
+    margin: 0;
+  }
 
 .Home-title{
     margin-bottom: 1rem;
@@ -7,15 +17,12 @@
     font-size: 3rem; 
 }
 
-
-
 .Home-text {
     font-size: 1.5rem; 
 }
 
 .Home-btns{
     text-align: center;
-
 }
 
 .Home-btn{
@@ -24,7 +31,8 @@
     background-color: red !important;
     box-shadow: 5px 5px 8px black;
     border:0 !important;
-    width: 30vw !important;
+    width: 20vw !important;
+    transition: background-color 2s, box-shadow 2s, width 3s;
 }
 
 .Home-navlink {
@@ -32,11 +40,24 @@
     text-decoration: none;
     font-size: 2.5rem;
     font-weight: bold;
+    transition: color 0.5s;
+}
+
+.Home-btn-hover:hover{
+    background-color: black !important;
+    box-shadow: 5px 5px 8px red;
+    width: 23vw;
+    color:red !important;
+}
+
+.Home-btn-hover:hover .Home-navlink{
+    color: red;
+    font-size: 2.7rem;
 }
 
 .Home-addMember-btn{
     color: white !important;
-    width:10vw;
+    width:12vw;
 }
 
 .Home-addMember{
@@ -50,19 +71,3 @@
     margin: auto;
     border:0 !important;
 }
-
-
-
-#Home-main {
-    width: 90vw;
-    height: 82vh;
-    background-color: white;
-    overflow: scroll;
-    color: black;
-    border: 15px red solid;
-    border-radius: 15px;
-    padding: 0;
-    margin: 0;
-  }
-
- 

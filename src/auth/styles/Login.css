@@ -1,8 +1,9 @@
 .Login-Form{
     background-color: white;
-    width: 25vw;
+    width: 30vw;
     padding: 2rem;
     border-radius: 20px;
+    border: 15px red solid;
 }
 
 .Login-h1 {

@@ -5,6 +5,8 @@ import PhysiqApi from "../../Api.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../navigation/Loading.jsx";
 import '../styles/Diagnosis.css'
+import { toast } from 'react-toastify';
+
 
 function DiagnosisUpdate({getDate}){
     let navigate = useNavigate();
@@ -43,7 +45,6 @@ function DiagnosisUpdate({getDate}){
     
     async function updateDiagnosis() {
         try {
-            
           let updatedDiagnosis= await PhysiqApi.updateDiagnosis(currentMember.id, diagnosisId, formData);
           return { success: true };
         } catch (errors) {
@@ -58,9 +59,19 @@ function DiagnosisUpdate({getDate}){
         let result = await updateDiagnosis();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+            toast.success('Diagnosis Updated!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                }); 
            setFormMessages(['Diagnosis Updated!'])
            setUpdateSuccess(true);
+           navigate("..", { relative: "path"});
         }
         else{
             setFormMessages(result.errors);
@@ -85,10 +96,19 @@ function DiagnosisUpdate({getDate}){
         if(shouldDelete){
             let result = await deleteDiagnosis();
             if(result.success){
-            //    alert("Saved Changes!") 
-            setFormMessages(['Diagnosis Deleted!'])
-            setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+                toast.success('Diagnosis Deleted!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                setFormMessages(['Diagnosis Deleted!'])
+                setUpdateSuccess(true);
+                navigate("..", { relative: "path"});
             }
             else{
                 setFormMessages(result.errors);
@@ -122,6 +142,7 @@ function DiagnosisUpdate({getDate}){
                 <Input
                 id="name"
                 name="name"
+                maxLength={125}
                 value={formData.name}
                 type="text"
                 onChange={handleChange}
@@ -147,12 +168,13 @@ function DiagnosisUpdate({getDate}){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
-
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

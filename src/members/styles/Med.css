@@ -1,5 +1,5 @@
 .Med-card {
-    height: 35vh;
+    height: fit-content;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -20,4 +20,8 @@
 
 .Med-date-input {
     width: 20vw;
+}
+
+.Med-select-input {
+    width: 45vw;
 }

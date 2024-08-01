@@ -5,6 +5,7 @@ import PhysiqApi from "../../Api.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../navigation/Loading.jsx";
 import '../styles/Symptom.css'
+import { toast } from 'react-toastify';
 
 function SymptomUpdate({getDate}){
     let navigate = useNavigate();
@@ -60,8 +61,19 @@ function SymptomUpdate({getDate}){
         let result = await updateSymptom();
         
         if(result.success){
+            toast.success('Symptom Updated!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
            setFormMessages(['Symptom Updated!'])
            setUpdateSuccess(true);
+           navigate("..", { relative: "path"});
         }
         else{
             setFormMessages(result.errors);
@@ -86,10 +98,19 @@ function SymptomUpdate({getDate}){
         if(shouldDelete){
             let result = await deleteSymptom();
             if(result.success){
-            //    alert("Saved Changes!") 
-            setFormMessages(['Symptom Deleted!'])
-            setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+                toast.success('Symptom Deleted!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    });
+                setFormMessages(['Symptom Deleted!'])
+                setUpdateSuccess(true);
+                navigate("..", { relative: "path"});
             }
             else{
                 setFormMessages(result.errors);
@@ -124,6 +145,7 @@ function SymptomUpdate({getDate}){
                 <Input
                 id="name"
                 name="name"
+                maxLength={100}
                 value={formData.name}
                 type="text"
                 onChange={handleChange}
@@ -162,11 +184,13 @@ function SymptomUpdate({getDate}){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

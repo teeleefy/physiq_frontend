@@ -5,6 +5,7 @@ import PhysiqApi from "../../Api.js";
 import { useNavigate } from "react-router-dom";
 import '../styles/Med.css'
 import Loading from "../../navigation/Loading.jsx"
+import { toast } from 'react-toastify';
 
 function MedNew({getDate}){
     let navigate = useNavigate();
@@ -44,7 +45,16 @@ function MedNew({getDate}){
         let result = await addMed();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+            toast.success('Medication Added!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }); 
            setFormMessages(['Med Added!'])
            setUpdateSuccess(true);
            navigate("..", { relative: "path"});
@@ -80,6 +90,7 @@ function MedNew({getDate}){
                 <Input
                 id="name"
                 name="name"
+                maxLength={100}
                 value={formData.name}
                 placeholder="Enter medication name..."
                 type="text"
@@ -93,6 +104,7 @@ function MedNew({getDate}){
                 <Input
                 id="indication"
                 name="indication"
+                maxLength={100}
                 value={formData.indication}
                 placeholder="Enter purpose/indication of medicine..."
                 type="text"
@@ -106,6 +118,7 @@ function MedNew({getDate}){
                 <Input
                 id="dose"
                 name="dose"
+                maxLength={100}
                 value={formData.dose}
                 placeholder="Enter dose and frequency (10mg twice a day)"
                 type="text"
@@ -140,7 +153,7 @@ function MedNew({getDate}){
                 onChange={handleChange}
                 />
                 </FormGroup>
-            <FormGroup>
+            <FormGroup className="Med-select-input">
                 <Label className="Med-label" for="prescriberId">
                     <b>Prescribed By:</b>
                 </Label>
@@ -148,7 +161,7 @@ function MedNew({getDate}){
                     id="prescriberId"
                     name="prescriberId"
                     onChange={handleChange}
-                type="select"
+                    type="select"
                 >
                     <option value={null}>---Select Prescriber---</option>
                     {doctors.map(dr => (<option value={dr.id} key={dr.id}>{dr.name}</option>))}
@@ -161,12 +174,14 @@ function MedNew({getDate}){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
                 placeholder="Enter notes..."
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

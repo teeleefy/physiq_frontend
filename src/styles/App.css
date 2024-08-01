@@ -8,6 +8,10 @@ main {
   color: black;
 }
 
+#App-main{
+  padding-top: 2rem;
+}
+
 .card {
   border-radius: 0;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -24,12 +28,12 @@ main {
   height: 7vh;
 }
 
-#footer{
+/* #footer{
   position: fixed;
   height: 5vh;
   bottom: 0;
   width: 100%;
-}
+} */
 
 #footer{
   position: absolute;
@@ -37,7 +41,7 @@ main {
   
   margin:auto;
   text-align: center;
-  bottom: 0;
+  bottom: 0.5rem;
   width: 100%;
 }
 

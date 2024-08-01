@@ -7,10 +7,10 @@ import PhysiqApi from "./Api.js";
 import './styles/Home.css'
 
 function Home(){
-    let { currentFamily, setCurrentFamily } = useContext(FamilyContext);
+    let { currentFamily, setCurrentFamily, setToken } = useContext(FamilyContext);
     const [isLoading, setIsLoading] = useState(true);
       
-        useEffect(function loadMemberInfo() {
+        useEffect(function loadFamilyInfo() {
           async function getCurrentFamily() {
                 try{
                     let family = await PhysiqApi.getCurrentFamily(currentFamily.id);
@@ -35,11 +35,6 @@ function Home(){
                 </>
             )
         }
-        return (
-            <>
-            
-            </>
-        )
     }
 
     function renderHomeMessage(){
@@ -51,7 +46,7 @@ function Home(){
                   {renderFamilyMembers()}  
                 </ListGroup>
                 <Button className="Home-addMember-btn btn-dark m-3">
-                    <NavLink className="Home-navlink Home-addMember" to={`add`}>Add Member</NavLink>
+                    <NavLink className="Home-navlink Home-addMember" to={`/add`}>Add Member</NavLink>
                 </Button>
                 </div>
             )
@@ -64,11 +59,11 @@ function Home(){
             <CardText className="Home-text">
                 Keep track of your family's health, all in one, convenient place!
             </CardText>
-            <Button className="Home-btn justify-content-center btn-dark">
-                <NavLink className="Home-navlink" to="/login" >Login</NavLink>         
+            <Button className="Home-btn Home-btn-hover justify-content-center btn-dark">
+                <NavLink className="Home-navlink Home-navlink-hover" to="/login" >Login</NavLink>         
             </Button>
-            <Button className="Home-btn justify-content-center btn-dark">
-                <NavLink className="Home-navlink" to="/signup" >Sign Up</NavLink>
+            <Button className="Home-btn Home-btn-hover justify-content-center btn-dark">
+                <NavLink className="Home-navlink Home-navlink-hover" to="/signup" >Sign Up</NavLink>
             </Button>
             </div>
         )

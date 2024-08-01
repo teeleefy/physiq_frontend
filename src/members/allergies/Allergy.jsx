@@ -10,6 +10,16 @@ import '../styles/Allergy.css'
 
 function Allergy({allergy, memberId}){
 
+    function renderNotes(){
+        if(allergy.notes){
+            return (
+                <>
+                 <p><b>Notes:</b> {allergy.notes}</p>
+                </>
+            )
+        }
+    }
+
     return(
         <>
         <ListGroupItem>
@@ -20,7 +30,7 @@ function Allergy({allergy, memberId}){
                             {allergy.name}
                         </NavLink></p>
                         <p><b>Reaction:</b> {allergy.reaction}</p>
-                        <p><b>Notes:</b> {allergy.notes}</p>
+                        {renderNotes()}
                     </CardText>
                 </CardBody>
             </Card>

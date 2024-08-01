@@ -5,6 +5,7 @@ import PhysiqApi from "../../Api.js";
 import { useNavigate } from "react-router-dom";
 import '../styles/Visit.css'
 import Loading from "../../navigation/Loading.jsx"
+import { toast } from 'react-toastify';
 
 function VisitNew(){
     let navigate = useNavigate();
@@ -43,7 +44,16 @@ function VisitNew(){
         let result = await addVisit();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+            toast.success('Visit Added!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
            setFormMessages(['Visit Added!'])
            setUpdateSuccess(true);
            navigate("..", { relative: "path"});
@@ -79,6 +89,7 @@ function VisitNew(){
                 <Input
                 id="title"
                 name="title"
+                maxLength={100}
                 value={formData.title}
                 placeholder="Enter reason for visit..."
                 type="text"
@@ -98,7 +109,7 @@ function VisitNew(){
                 onChange={handleChange}
                 />
                 </FormGroup>
-            <FormGroup>
+            <FormGroup className="Visit-select-input">
                 <Label className="Visit-label" for="doctorId">
                     <b>Doctor Seen:</b>
                 </Label>
@@ -119,12 +130,14 @@ function VisitNew(){
                 <Input
                 id="description"
                 name="description"
+                maxLength={250}
                 value={formData.description}
                 placeholder="Enter notes..."
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.description.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

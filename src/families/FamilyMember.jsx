@@ -10,18 +10,28 @@ import {
 
 function FamilyMember({familyMember}){
 
+    function renderBirthday(){
+        if(familyMember.birthday){
+            return (
+                <>
+                 <p><b>Birthday:</b> {familyMember.birthday}</p>
+                </>
+            )
+        }
+    }
+
     return(
         <>
         <ListGroupItem>
             <Card className="FamilyMember-card">
                 <CardBody>
                     <CardText>
-                        <p><b>Family Member Name: </b>  
+                        <p><b>Name: </b>  
                             <NavLink className="FamilyMember-name" to={`/member/${familyMember.id}`} key={familyMember.id}>
                                  {familyMember.firstName} {familyMember.lastName}
                             </NavLink>
                         </p>
-                        <p><b>Birthday:</b> {familyMember.birthday}</p>
+                        {renderBirthday()}
                     </CardText>
                 </CardBody>
             </Card>

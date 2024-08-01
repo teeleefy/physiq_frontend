@@ -5,21 +5,24 @@ import Home from "../Home";
 import Login from "../auth/LoginForm";
 import Signup from "../auth/SignupForm";
 import MemberPortal from "../members/MemberPortal"
-import Profile from "../Profile";
+import FamilyProfile from "../families/FamilyProfile";
 import NotFound from "../NotFound";
-import PrivateRoute from "./PrivateRoute";
+import PrivateFamilyRoute from "./PrivateFamilyRoute";
+import PrivateMemberRoute from "./PrivateMemberRoute";
+import FamilyMemberNew from "../families/FamilyMemberNew";
 
 
-function AppRoutes({ login, signup, update }) {
+function AppRoutes({ login, logout, signup, updateFamily }) {
     return (
-        <div className="pt-5">
+        <div>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/home" element={<Home/>}/>
-            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/add" element={<PrivateFamilyRoute><FamilyMemberNew/></PrivateFamilyRoute>}/>
+            <Route path="/profile" element={<PrivateFamilyRoute><FamilyProfile logout={logout} updateFamily={updateFamily}/></PrivateFamilyRoute>}/>
             <Route path="/login" element={<Login login={login}/>}/>
             <Route path="/signup" element={<Signup signup={signup}/>}/>
-            <Route path="/member/:id/*" element={<MemberPortal />}/>
+            <Route path="/member/:id/*" element={<PrivateMemberRoute><MemberPortal /></PrivateMemberRoute>}/>
             <Route path="*" element={<NotFound/>}/>
             {/* <Route path="/companies" element={<PrivateRoute><Companies/></PrivateRoute>}/>
             <Route path="/jobs" element={<PrivateRoute><Jobs/></PrivateRoute>}/>

@@ -233,6 +233,10 @@ class PhysiqApi {
         let res = await this.request(`families/${familyId}`, data, "patch");
         return res.family;
         }
+    static async updatePassword(familyId, data) {
+        let res = await this.request(`families/${familyId}/password`, data, "patch");
+        return res.family;
+        }
         //UDPATE MEMBER
     static async updateMember(id, data) {
         let res = await this.request(`members/${id}`, data, "patch");

@@ -10,21 +10,14 @@ import { useParams } from "react-router-dom";
  * route if so. If no user is present, redirects to login form.
  */
 
-function PrivateRoute({ children }) {
-    const {id} =useParams();
-    const { token, familyMemberIds, currentFamily } = useContext(FamilyContext);
+function PrivateFamilyRoute({ children }) {
+    const { token, currentFamily } = useContext(FamilyContext);
     let navigate = useNavigate();
 
     useEffect(()=>{
         if (!token || !currentFamily) {
             navigate('/');
         }
-        console.log('PRIVATE ROUTE:', currentFamily)
-        // if(id){
-        //     if(!(familyMemberIds.includes(id))){
-        //         navigate('/');
-        //     }
-        // }
     },[token, currentFamily])
 
     if (!token || !currentFamily) {
@@ -34,4 +27,4 @@ function PrivateRoute({ children }) {
   return children;
 }
 
-export default PrivateRoute;
+export default PrivateFamilyRoute;

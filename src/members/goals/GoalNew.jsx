@@ -4,6 +4,7 @@ import {MemberContext} from "../../auth/UserContext.js";
 import PhysiqApi from "../../Api.js";
 import { useNavigate } from "react-router-dom";
 import '../styles/Goal.css'
+import { toast } from 'react-toastify';
 
 function GoalNew(){
     let navigate = useNavigate();
@@ -28,7 +29,16 @@ function GoalNew(){
         let result = await addGoal();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+            toast.success('Goal Added!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }); 
            setFormMessages(['Goal Added!'])
            setUpdateSuccess(true);
            navigate("..", { relative: "path"});
@@ -62,6 +72,7 @@ function GoalNew(){
                 <Input
                 id="goalName"
                 name="goalName"
+                maxLength={100}
                 value={formData.goalName}
                 placeholder="Enter goal name..."
                 type="text"
@@ -77,10 +88,12 @@ function GoalNew(){
                 name="goalDetails"
                 value={formData.goalDetails}
                 placeholder="Enter goal details..."
-                type="text"
+                maxLength={250}
+                type="textarea"
                 onChange={handleChange}
                 />
                 </FormGroup>
+                <p className="text-secondary">{formData.goalDetails.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

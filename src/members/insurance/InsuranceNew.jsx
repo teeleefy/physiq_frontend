@@ -4,13 +4,14 @@ import {MemberContext} from "../../auth/UserContext.js";
 import PhysiqApi from "../../Api.js";
 import { useNavigate } from "react-router-dom";
 import '../styles/Insurance.css'
+import { toast } from 'react-toastify';
 
 function InsuranceNew({getDate}){
     let navigate = useNavigate();
     const { currentMember } = useContext(MemberContext);
     const [formMessages, setFormMessages] = useState([]);
     const [updateSuccess, setUpdateSuccess] =useState();
-    const [formData, setFormData] = useState({companyName: "", insuredName: "", type: "", startDate:"", endDate:"", groupNum:"", contractNum:"", notes: ""});
+    const [formData, setFormData] = useState({companyName: "", insuredName: "", type: "Medical", startDate:"", endDate:"", groupNum:"", contractNum:"", notes: ""});
     const todaysDate = getDate();
 
     async function addInsurance() {
@@ -25,11 +26,20 @@ function InsuranceNew({getDate}){
 
     async function handleSubmit(evt){
         evt.preventDefault();
-        // console.log(formData);
+        console.log(formData);
         let result = await addInsurance();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+            toast.success('Insurance Added!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }); 
            setFormMessages(['Insurance Added!'])
            setUpdateSuccess(true);
            navigate("..", { relative: "path"});
@@ -63,24 +73,31 @@ function InsuranceNew({getDate}){
                 <Input
                 id="companyName"
                 name="companyName"
+                maxLength={100}
                 value={formData.companyName}
                 placeholder="Enter insurance company name..."
                 type="text"
                 onChange={handleChange}
                 />
             </FormGroup>
-            <FormGroup>
+            <FormGroup className="Insurance-date-input">
                 <Label className="Insurance-label" for="type">
                     <b>Type of Insurance</b><span className="text-danger">*</span>
                 </Label>
                 <Input
                 id="type"
                 name="type"
+                maxLength={50}
                 value={formData.type}
-                placeholder="Enter type of insurance (medical, dental, etc.)..."
-                type="text"
+                type="select"
                 onChange={handleChange}
-                />
+                >
+                    <option value="Medical">Medical</option>
+                    <option value="Dental">Dental</option>
+                    <option value="Vision">Vision</option>
+                    <option value="Medical/Dental">Medical/Dental</option>
+                    <option value="Other">Other</option>
+                </Input>
             </FormGroup>
             <FormGroup>
                 <Label className="Insurance-label" for="insuredName">
@@ -89,6 +106,7 @@ function InsuranceNew({getDate}){
                 <Input
                 id="insuredName"
                 name="insuredName"
+                maxLength={100}
                 value={formData.insuredName}
                 placeholder="Enter name of person listed on card..."
                 type="text"
@@ -130,6 +148,7 @@ function InsuranceNew({getDate}){
                 <Input
                 id="groupNum"
                 name="groupNum"
+                maxLength={25}
                 value={formData.groupNum}
                 placeholder="Enter group number..."
                 type="text"
@@ -143,6 +162,7 @@ function InsuranceNew({getDate}){
                 <Input
                 id="contractNum"
                 name="contractNum"
+                maxLength={25}
                 value={formData.contractNum}
                 placeholder="Enter contract number..."
                 type="text"
@@ -156,12 +176,14 @@ function InsuranceNew({getDate}){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
                 placeholder="Enter notes..."
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

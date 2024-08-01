@@ -11,6 +11,7 @@ import MemberNavBar from "../navigation/MemberNavBar.jsx";
 import MemberRoutes from "../routes/MemberRoutes.jsx";
 import Loading from "../navigation/Loading.jsx"
 
+
 function MemberPortal() {
   const [isLoading, setIsLoading] = useState(true);
   const [currentMember, setCurrentMember] =useState();
@@ -21,9 +22,10 @@ function MemberPortal() {
         if(id){
             try{
                 let member = await PhysiqApi.getMember(id);
+                console.log('MEMBER PORTAL', member)
                 setCurrentMember(member);
             }catch (err) {
-            console.error("App loadUserInfo: problem loading", err);
+            console.error("App loadMemberInfo: problem loading", err);
             setCurrentMember(null);
             }
         }
@@ -31,7 +33,7 @@ function MemberPortal() {
     }
     
     getCurrentMember();
-  }, [id]);
+  }, []);
 
   async function updateMember(updatedMemberData) {
     try {
@@ -44,7 +46,7 @@ function MemberPortal() {
     }
   }
 
-  if (isLoading) return <Loading/>;
+  
 
 
   function getDate() {
@@ -61,16 +63,15 @@ function MemberPortal() {
     return `${year}-${month}-${date}`;
   }
   
+    if (!currentMember && isLoading) return <Loading/>;
+
   return (
     <MemberContext.Provider value={{currentMember, setCurrentMember}}>
       <div className="MemberPortal">
           
           <div id="MemberPortal-main">
             <div className="MemberPortal-navbar"><MemberNavBar/></div>
-            {/* <div className="MemberPortal-portal"> */}
               <MemberRoutes updateMember={updateMember} getDate={getDate}/>  
-            {/* </div> */}
-            
           </div>
       </div>
     </MemberContext.Provider>  

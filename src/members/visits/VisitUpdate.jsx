@@ -5,6 +5,7 @@ import PhysiqApi from "../../Api.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../navigation/Loading.jsx";
 import '../styles/Visit.css'
+import { toast } from 'react-toastify';
 
 function VisitUpdate({getDate}){
     let navigate = useNavigate();
@@ -13,7 +14,7 @@ function VisitUpdate({getDate}){
     const [isLoading, setIsLoading] = useState(true);
     const [formMessages, setFormMessages] = useState([]);
     const [updateSuccess, setUpdateSuccess] =useState();
-    const [formData, setFormData] = useState({title: "", date:"", doctorId:"", description: ""});
+    const [formData, setFormData] = useState({title: "", date:"", doctorId:"-1", description: ""});
     const [doctors, setDoctors] = useState(null);
     const todaysDate = getDate();
 
@@ -28,7 +29,7 @@ function VisitUpdate({getDate}){
                       visit.date = "";
                     }
                     if(!visit.doctorId){
-                      visit.doctorId = "";
+                      visit.doctorId = "-1";
                     }
                     if(!visit.description){
                       visit.description = "";
@@ -60,11 +61,23 @@ function VisitUpdate({getDate}){
 
     async function handleSubmit(evt){
         evt.preventDefault();
+        console.log('visit update formData:', formData)
         let result = await updateVisit();
         
         if(result.success){
+            toast.success('Visit Updated!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
            setFormMessages(['Visit Updated!'])
            setUpdateSuccess(true);
+           navigate("..", { relative: "path"});
         }
         else{
             setFormMessages(result.errors);
@@ -89,10 +102,19 @@ function VisitUpdate({getDate}){
         if(shouldDelete){
             let result = await deleteVisit();
             if(result.success){
-            //    alert("Saved Changes!") 
-            setFormMessages(['Visit Deleted!'])
-            setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+                toast.success('Visit Deleted!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    });
+                setFormMessages(['Visit Deleted!'])
+                setUpdateSuccess(true);
+                navigate("..", { relative: "path"});
             }
             else{
                 setFormMessages(result.errors);
@@ -128,6 +150,7 @@ function VisitUpdate({getDate}){
                 <Input
                 id="title"
                 name="title"
+                maxLength={100}
                 value={formData.title}
                 placeholder="Enter reason for visit..."
                 type="text"
@@ -147,7 +170,7 @@ function VisitUpdate({getDate}){
                 onChange={handleChange}
                 />
                 </FormGroup>
-            <FormGroup>
+            <FormGroup className="Visit-select-input">
                 <Label className="Visit-label" for="doctorId">
                     <b>Doctor Seen:</b>
                 </Label>
@@ -158,7 +181,7 @@ function VisitUpdate({getDate}){
                     onChange={handleChange}
                 type="select"
                 >
-                    <option value={-1} key={"null"}>---Select Prescriber---</option>
+                    <option value="-1" key={"null"}>---Select Prescriber---</option>
                     {doctors.map(dr => (<option value={dr.id} key={dr.id}>{dr.name}</option>))}
                 </Input>
             </FormGroup>
@@ -169,13 +192,14 @@ function VisitUpdate({getDate}){
                 <Input
                 id="description"
                 name="description"
+                maxLength={250}
                 value={formData.description}
                 placeholder="Enter notes..."
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
-
+            <p className="text-secondary">{formData.description.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

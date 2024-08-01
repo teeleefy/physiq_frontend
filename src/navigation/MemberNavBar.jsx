@@ -22,11 +22,11 @@ function MemberNavBar() {
                     <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/allergies`}>allergies</NavLink>
                     <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/diagnoses`}>diagnoses</NavLink>
                     <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/doctors`}>doctors</NavLink>
+                    <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/goals`}>goals</NavLink>
                     <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/insurance`}>insurance</NavLink>
                     <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/meds`}>meds</NavLink>
                     <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/symptoms`}>symptoms</NavLink>
                     <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/visits`}>visits</NavLink>
-                    <NavLink className={"MemberNavBar-link"} to={`/member/${currentMember.id}/goals`}>goals</NavLink>
                 </NavItem> 
             )
         }
@@ -41,8 +41,8 @@ function MemberNavBar() {
   return (
     <div>
         <Navbar id="MemberNavBar">
-            <Nav>
-               {renderNavLinks()} 
+            <Nav >
+                {renderNavLinks()} 
             </Nav>
         </Navbar>
     </div>

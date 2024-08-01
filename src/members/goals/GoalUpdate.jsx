@@ -5,6 +5,7 @@ import PhysiqApi from "../../Api.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../navigation/Loading.jsx";
 import '../styles/Goal.css'
+import { toast } from 'react-toastify';
 
 function GoalUpdate(){
     let navigate = useNavigate();
@@ -14,6 +15,7 @@ function GoalUpdate(){
     const [formMessages, setFormMessages] = useState([]);
     const [updateSuccess, setUpdateSuccess] =useState();
     const [formData, setFormData] = useState({goalName: "", goalDetails: ""});
+    
     
 
     useEffect(function loadGoalInfo() {
@@ -54,9 +56,19 @@ function GoalUpdate(){
         let result = await updateGoal();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+          toast.success('Goal Updated!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            }); 
            setFormMessages(['Goal Updated!'])
            setUpdateSuccess(true);
+           navigate("..", { relative: "path"});
         }
         else{
             setFormMessages(result.errors);
@@ -81,10 +93,19 @@ function GoalUpdate(){
         if(shouldDelete){
             let result = await deleteGoal();
             if(result.success){
-            //    alert("Saved Changes!") 
-            setFormMessages(['Goal Deleted!'])
-            setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+              toast.success('Goal Deleted!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }); 
+              setFormMessages(['Goal Deleted!'])
+              setUpdateSuccess(true);
+              navigate("..", { relative: "path"});
             }
             else{
                 setFormMessages(result.errors);
@@ -118,6 +139,7 @@ function GoalUpdate(){
                 <Input
                 id="goalName"
                 name="goalName"
+                maxLength={100}
                 value={formData.goalName}
                 type="text"
                 onChange={handleChange}
@@ -131,10 +153,12 @@ function GoalUpdate(){
                 id="goalDetails"
                 name="goalDetails"
                 value={formData.goalDetails}
-                type="text"
+                maxLength={250}
+                type="textarea"
                 onChange={handleChange}
                 />
                 </FormGroup>
+                <p className="text-secondary">{formData.goalDetails.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

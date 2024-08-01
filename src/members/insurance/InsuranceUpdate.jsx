@@ -5,6 +5,7 @@ import PhysiqApi from "../../Api.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../navigation/Loading.jsx";
 import '../styles/Insurance.css'
+import { toast } from 'react-toastify';
 
 function InsuranceUpdate({getDate}){
     let navigate = useNavigate();
@@ -55,15 +56,6 @@ function InsuranceUpdate({getDate}){
     
     async function updateInsurance() {
         try {
-            // let updateInfo = formData; 
-
-            // if(!updateInfo.startDate){
-            //     updateInfo.startDate = null;
-            //   }
-            // if(!updateInfo.endDate){
-            //     updateInfo.endDate = null;
-            //   }
-            
           let updatedInsurance= await PhysiqApi.updateInsurance(currentMember.id, insuranceId, formData);
           return { success: true };
         } catch (errors) {
@@ -78,8 +70,19 @@ function InsuranceUpdate({getDate}){
         let result = await updateInsurance();
         
         if(result.success){
+            toast.success('Insurance Updated!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }); 
            setFormMessages(['Insurance Updated!'])
            setUpdateSuccess(true);
+           navigate("..", { relative: "path"});
         }
         else{
             setFormMessages(result.errors);
@@ -104,10 +107,19 @@ function InsuranceUpdate({getDate}){
         if(shouldDelete){
             let result = await deleteInsurance();
             if(result.success){
-            //    alert("Saved Changes!") 
-            setFormMessages(['Insurance Deleted!'])
-            setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+                toast.success('Insurance Deleted!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    }); 
+                setFormMessages(['Insurance Deleted!'])
+                setUpdateSuccess(true);
+                navigate("..", { relative: "path"});
             }
             else{
                 setFormMessages(result.errors);
@@ -142,22 +154,30 @@ function InsuranceUpdate({getDate}){
                 <Input
                 id="companyName"
                 name="companyName"
+                maxLength={100}
                 value={formData.companyName}
                 type="text"
                 onChange={handleChange}
                 />
             </FormGroup>
-            <FormGroup>
+            <FormGroup className="Insurance-select-input">
                 <Label className="Insurance-label" for="type">
                     <b>Type of Insurance</b><span className="text-danger">*</span>
                 </Label>
                 <Input
                 id="type"
                 name="type"
+                maxLength={50}
                 value={formData.type}
-                type="text"
+                type="select"
                 onChange={handleChange}
-                />
+                >
+                    <option value="Medical">Medical</option>
+                    <option value="Dental">Dental</option>
+                    <option value="Vision">Vision</option>
+                    <option value="Medical/Dental">Medical/Dental</option>
+                    <option value="Other">Other</option>
+                </Input>
             </FormGroup>
             <FormGroup>
                 <Label className="Insurance-label" for="insuredName">
@@ -166,6 +186,7 @@ function InsuranceUpdate({getDate}){
                 <Input
                 id="insuredName"
                 name="insuredName"
+                maxLength={100}
                 value={formData.insuredName}
                 type="text"
                 onChange={handleChange}
@@ -204,6 +225,7 @@ function InsuranceUpdate({getDate}){
                 <Input
                 id="groupNum"
                 name="groupNum"
+                maxLength={25}
                 value={formData.groupNum}
                 type="text"
                 onChange={handleChange}
@@ -216,6 +238,7 @@ function InsuranceUpdate({getDate}){
                 <Input
                 id="contractNum"
                 name="contractNum"
+                maxLength={25}
                 value={formData.contractNum}
                 type="text"
                 onChange={handleChange}
@@ -228,11 +251,13 @@ function InsuranceUpdate({getDate}){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

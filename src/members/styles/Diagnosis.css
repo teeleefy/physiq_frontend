@@ -1,5 +1,5 @@
 .Diagnosis-card {
-    height: 15vh;
+    height: fit-content;
     margin-left: 0.5rem;
     margin-bottom: 0.5rem;
 }

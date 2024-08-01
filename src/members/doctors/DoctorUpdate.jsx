@@ -5,6 +5,7 @@ import PhysiqApi from "../../Api.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../navigation/Loading.jsx";
 import '../styles/Doctor.css'
+import { toast } from 'react-toastify';
 
 function DoctorUpdate(){
     let navigate = useNavigate();
@@ -63,9 +64,19 @@ function DoctorUpdate(){
         let result = await updateDoctor();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+            toast.success('Doctor Updated!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
            setFormMessages(['Doctor Updated!'])
            setUpdateSuccess(true);
+           navigate("..", { relative: "path"});
         }
         else{
             setFormMessages(result.errors);
@@ -90,10 +101,19 @@ function DoctorUpdate(){
         if(shouldDelete){
             let result = await deleteDoctor();
             if(result.success){
-            //    alert("Saved Changes!") 
-            setFormMessages(['Doctor Deleted!'])
-            setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+                toast.success('Doctor Deleted!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    }); 
+                setFormMessages(['Doctor Deleted!'])
+                setUpdateSuccess(true);
+                navigate("..", { relative: "path"});
             }
             else{
                 setFormMessages(result.errors);
@@ -128,6 +148,7 @@ function DoctorUpdate(){
                 <Input
                 id="name"
                 name="name"
+                maxLength={100}
                 value={formData.name}
                 type="text"
                 onChange={handleChange}
@@ -140,6 +161,7 @@ function DoctorUpdate(){
                 <Input
                 id="specialty"
                 name="specialty"
+                maxLength={100}
                 value={formData.specialty}
                 type="text"
                 onChange={handleChange}
@@ -152,6 +174,7 @@ function DoctorUpdate(){
                 <Input
                 id="clinic"
                 name="clinic"
+                maxLength={100}
                 value={formData.clinic}
                 type="text"
                 onChange={handleChange}
@@ -164,6 +187,7 @@ function DoctorUpdate(){
                 <Input
                 id="address"
                 name="address"
+                maxLength={100}
                 value={formData.address}
                 type="text"
                 onChange={handleChange}
@@ -176,6 +200,7 @@ function DoctorUpdate(){
                 <Input
                 id="phone"
                 name="phone"
+                maxLength={25}
                 value={formData.phone}
                 type="text"
                 onChange={handleChange}
@@ -188,12 +213,13 @@ function DoctorUpdate(){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
-
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

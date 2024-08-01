@@ -10,20 +10,61 @@ import {
 
 function Doctor({doctor, memberId}){
 
+    function renderClinic(){
+        if(doctor.clinic){
+            return (
+                <>
+                 <p><b>Clinic:</b> {doctor.clinic}</p>
+                </>
+            )
+        }
+    }
+
+    function renderAddress(){
+        if(doctor.address){
+            return (
+                <>
+                 <p><b>Address:</b> {doctor.address}</p>
+                </>
+            )
+        }
+    }
+
+    function renderPhone(){
+        if(doctor.phone){
+            return (
+                <>
+                 <p><b>Phone:</b> {doctor.phone}</p>
+                </>
+            )
+        }
+    }
+
+    function renderNotes(){
+        if(doctor.notes){
+            return (
+                <>
+                 <p><b>Notes:</b> {doctor.notes}</p>
+                </>
+            )
+        }
+    }
+    
+
     return(
         <>
-            <ListGroupItem className="Doctor-card">
-            <Card >
+            <ListGroupItem >
+            <Card className="Doctor-card">
                 <CardBody>
                     <CardText>
                         <p><b>Doctor Name:</b> <NavLink className="Doctor-name" to={`/member/${memberId}/doctors/${doctor.id}`} key={doctor.id}>
                             {doctor.name}
                         </NavLink></p>
                         <p><b>Specialty:</b> {doctor.specialty}</p>
-                        <p><b>Clinic:</b> {doctor.clinic}</p>
-                        <p><b>Address:</b> {doctor.address}</p>
-                        <p><b>Phone:</b> {doctor.phone}</p>
-                        <p><b>Notes:</b> {doctor.notes}</p>
+                        {renderClinic()}
+                        {renderAddress()}
+                        {renderPhone()}
+                        {renderNotes()}
                     </CardText>
                 </CardBody>
             </Card>

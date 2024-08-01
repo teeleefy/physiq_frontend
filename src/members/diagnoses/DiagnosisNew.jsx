@@ -4,6 +4,7 @@ import {MemberContext} from "../../auth/UserContext.js";
 import PhysiqApi from "../../Api.js";
 import { useNavigate } from "react-router-dom";
 import '../styles/Diagnosis.css'
+import { toast } from 'react-toastify';
 
 function DiagnosisNew({getDate}){
     let navigate = useNavigate();
@@ -28,7 +29,16 @@ function DiagnosisNew({getDate}){
         let result = await addDiagnosis();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+            toast.success('Diagnosis Added!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }); 
            setFormMessages(['Diagnosis Added!'])
            setUpdateSuccess(true);
            navigate("..", { relative: "path"});
@@ -61,6 +71,7 @@ function DiagnosisNew({getDate}){
                 <Input
                 id="name"
                 name="name"
+                maxLength={125}
                 value={formData.name}
                 placeholder="Enter diagnosis name..."
                 type="text"
@@ -88,12 +99,14 @@ function DiagnosisNew({getDate}){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
                 placeholder="Enter notes..."
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

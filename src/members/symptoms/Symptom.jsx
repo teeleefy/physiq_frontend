@@ -10,21 +10,51 @@ import {
 
 function Symptom({symptom, memberId}){
 
+    function renderStartDate(){
+        if(symptom.startDate){
+            return (
+                <>
+                 <p><b>Start Date:</b> {symptom.startDate}</p>
+                </>
+            )
+        }
+    }
+
+    function renderEndDate(){
+        if(symptom.endDate){
+            return (
+                <>
+                 <p><b>End Date:</b> {symptom.endDate}</p>
+                </>
+            )
+        }
+    }
+
+    function renderNotes(){
+        if(symptom.notes){
+            return (
+                <>
+                 <p><b>Notes:</b> {symptom.notes}</p>
+                </>
+            )
+        }
+    }
+
     return(
         <>
-            <ListGroupItem className="Symptom-card">
-            <Card>
-                <CardBody>
-                    <CardText>
-                        <p><b>Symptom Name:</b> <NavLink className="Symptom-name" to={`/member/${memberId}/symptoms/${symptom.id}`} key={symptom.id}>
-                            {symptom.name}
-                        </NavLink></p>
-                        <p><b>Start Date:</b> {symptom.startDate}</p>
-                        <p><b>End Date:</b> {symptom.endDate}</p>
-                        <p><b>Notes:</b> {symptom.notes}</p>
-                    </CardText>
-                </CardBody>
-            </Card>
+            <ListGroupItem >
+                <Card className="Symptom-card">
+                    <CardBody>
+                        <CardText>
+                            <p><b>Symptom Name:</b> <NavLink className="Symptom-name" to={`/member/${memberId}/symptoms/${symptom.id}`} key={symptom.id}>
+                                {symptom.name}
+                            </NavLink></p>
+                            {renderStartDate()}
+                            {renderEndDate()}
+                            {renderNotes()}
+                        </CardText>
+                    </CardBody>
+                </Card>
             </ListGroupItem>
         </>
      )

@@ -2,7 +2,7 @@ import { Form, FormGroup, Input, Button, Label, Alert } from "reactstrap";
 import './styles/Login.css'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-
+import { toast } from 'react-toastify';
 
 function LoginForm({login}){
     const INITIAL_STATE = { email: "", password: ""};
@@ -17,6 +17,16 @@ function LoginForm({login}){
         // console.log(formData);
         let result = await login(formData);
         if(result.success){
+            toast.success('Logged In!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
             setFormData(INITIAL_STATE);
             navigate('/');
         } else{
@@ -46,6 +56,8 @@ function LoginForm({login}){
                 <Input
                 id="email"
                 name="email"
+                minLength={6}
+                maxLength={60}
                 type="text"
                 value={formData.email}
                 onChange={ handleChange }
@@ -60,6 +72,7 @@ function LoginForm({login}){
                 name="password"
                 value={formData.password}
                 type="password"
+                minLength={8}
                 onChange={ handleChange }
                 />
                 </FormGroup>

@@ -4,6 +4,7 @@ import {MemberContext} from "../../auth/UserContext.js";
 import PhysiqApi from "../../Api.js";
 import { useNavigate } from "react-router-dom";
 import '../styles/Doctor.css'
+import { toast } from 'react-toastify';
 
 function DoctorNew(){
     let navigate = useNavigate();
@@ -28,7 +29,16 @@ function DoctorNew(){
         let result = await addDoctor();
         
         if(result.success){
-        //    alert("Saved Changes!") 
+            toast.success('Doctor Added!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }); 
            setFormMessages(['Doctor Added!'])
            setUpdateSuccess(true);
            navigate("..", { relative: "path"});
@@ -62,6 +72,7 @@ function DoctorNew(){
                 <Input
                 id="name"
                 name="name"
+                maxLength={100}
                 value={formData.name}
                 placeholder="Enter doctor name..."
                 type="text"
@@ -75,6 +86,7 @@ function DoctorNew(){
                 <Input
                 id="specialty"
                 name="specialty"
+                maxLength={100}
                 value={formData.specialty}
                 placeholder="Enter specialty..."
                 type="text"
@@ -88,6 +100,7 @@ function DoctorNew(){
                 <Input
                 id="clinic"
                 name="clinic"
+                maxLength={100}
                 value={formData.clinic}
                 placeholder="Enter clinic..."
                 type="text"
@@ -101,6 +114,7 @@ function DoctorNew(){
                 <Input
                 id="address"
                 name="address"
+                maxLength={100}
                 value={formData.address}
                 placeholder="Enter address..."
                 type="text"
@@ -114,6 +128,7 @@ function DoctorNew(){
                 <Input
                 id="phone"
                 name="phone"
+                maxLength={25}
                 value={formData.phone}
                 placeholder="Enter phone..."
                 type="text"
@@ -127,12 +142,14 @@ function DoctorNew(){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
                 placeholder="Enter notes..."
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

@@ -5,6 +5,8 @@ import PhysiqApi from "../../Api.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../navigation/Loading.jsx";
 import '../styles/Allergy.css'
+import { toast } from 'react-toastify';
+
 
 function AllergyUpdate(){
     let navigate = useNavigate();
@@ -54,8 +56,19 @@ function AllergyUpdate(){
         let result = await updateAllergy();
         
         if(result.success){
+            toast.success('Allergy Updated!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
            setFormMessages(['Allergy Updated!'])
            setUpdateSuccess(true);
+           navigate("..", { relative: "path"})
         }
         else{
             setFormMessages(result.errors);
@@ -80,10 +93,20 @@ function AllergyUpdate(){
         if(shouldDelete){
             let result = await deleteAllergy();
             if(result.success){
-            //    alert("Saved Changes!") 
+            // toast.success('Allergy Deleted!')
+            toast.success('Allergy Deleted!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
             setFormMessages(['Allergy Deleted!'])
             setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+            navigate("..", { relative: "path"})
             }
             else{
                 setFormMessages(result.errors);
@@ -117,6 +140,7 @@ function AllergyUpdate(){
                 <Input
                 id="name"
                 name="name"
+                maxLength={50}
                 value={formData.name}
                 type="text"
                 onChange={handleChange}
@@ -129,6 +153,7 @@ function AllergyUpdate(){
                 <Input
                 id="reaction"
                 name="reaction"
+                maxLength={100}
                 value={formData.reaction}
                 type="text"
                 onChange={handleChange}
@@ -141,11 +166,13 @@ function AllergyUpdate(){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

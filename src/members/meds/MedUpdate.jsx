@@ -5,6 +5,7 @@ import PhysiqApi from "../../Api.js";
 import { useParams, useNavigate } from "react-router-dom";
 import Loading from "../../navigation/Loading.jsx";
 import '../styles/Med.css'
+import { toast } from 'react-toastify';
 
 function MedUpdate({getDate}){
     let navigate = useNavigate();
@@ -13,7 +14,7 @@ function MedUpdate({getDate}){
     const [isLoading, setIsLoading] = useState(true);
     const [formMessages, setFormMessages] = useState([]);
     const [updateSuccess, setUpdateSuccess] =useState();
-    const [formData, setFormData] = useState({name: "", indication: "", dose:"", startDate:"", endDate:"",  prescriberId:"", notes: ""});
+    const [formData, setFormData] = useState({name: "", indication: "", dose:"", startDate:"", endDate:"",  prescriberId:"-1", notes: ""});
     const [doctors, setDoctors] = useState(null);
     const todaysDate = getDate();
 
@@ -37,7 +38,7 @@ function MedUpdate({getDate}){
                       med.dose = "";
                     }
                     if(!med.prescriberId){
-                      med.prescriberId = "";
+                      med.prescriberId = "-1";
                     }
                     if(!med.notes){
                       med.notes = "";
@@ -58,6 +59,7 @@ function MedUpdate({getDate}){
     
     async function updateMed() {
         try {
+            
           let updatedMed= await PhysiqApi.updateMed(currentMember.id, medId, formData);
           console.log('after updatedMed runs')
           return { success: true };
@@ -70,11 +72,23 @@ function MedUpdate({getDate}){
 
     async function handleSubmit(evt){
         evt.preventDefault();
+        console.log('update Med formData', formData)
         let result = await updateMed();
 
         if(result.success){
-           setFormMessages(['Med Updated!'])
+            toast.success('Medication Updated!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+           setFormMessages(['Medication Updated!'])
            setUpdateSuccess(true);
+           navigate("..", { relative: "path"});
         }
         else{
             setFormMessages(result.errors);
@@ -99,10 +113,19 @@ function MedUpdate({getDate}){
         if(shouldDelete){
             let result = await deleteMed();
             if(result.success){
-            //    alert("Saved Changes!") 
-            setFormMessages(['Med Deleted!'])
-            setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+                toast.success('Medication Deleted!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    }); 
+                setFormMessages(['Med Deleted!'])
+                setUpdateSuccess(true);
+                navigate("..", { relative: "path"});
             }
             else{
                 setFormMessages(result.errors);
@@ -137,6 +160,7 @@ function MedUpdate({getDate}){
                 <Input
                 id="name"
                 name="name"
+                maxLength={100}
                 value={formData.name}
                 type="text"
                 onChange={handleChange}
@@ -149,6 +173,7 @@ function MedUpdate({getDate}){
                 <Input
                 id="indication"
                 name="indication"
+                maxLength={100}
                 value={formData.indication}
                 type="text"
                 onChange={handleChange}
@@ -161,6 +186,7 @@ function MedUpdate({getDate}){
                 <Input
                 id="dose"
                 name="dose"
+                maxLength={100}
                 value={formData.dose}
                 type="text"
                 onChange={handleChange}
@@ -192,7 +218,7 @@ function MedUpdate({getDate}){
                 onChange={handleChange}
                 />
                 </FormGroup>
-            <FormGroup>
+            <FormGroup className="Med-select-input">
                 <Label className="Med-label" for="prescriberId">
                     <b>Prescribed By:</b>
                 </Label>
@@ -203,7 +229,7 @@ function MedUpdate({getDate}){
                     value = {formData.prescriberId}
                 type="select"
                 >
-                    <option value={-1}>---Select Prescriber---</option>
+                    <option value="-1">---Select Prescriber---</option>
                     {doctors.map(dr => (<option value={dr.id} key={dr.id}>{dr.name}</option>))}
                 </Input>
             </FormGroup>
@@ -214,11 +240,13 @@ function MedUpdate({getDate}){
                 <Input
                 id="notes"
                 name="notes"
+                maxLength={250}
                 value={formData.notes}
-                type="text"
+                type="textarea"
                 onChange={handleChange}
                 />
             </FormGroup>
+            <p className="text-secondary">{formData.notes.length}/250 Characters</p>
                 {formMessages.length
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null

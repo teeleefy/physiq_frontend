@@ -2,6 +2,7 @@ import { Form, FormGroup, Input, Button, Label, Alert } from "reactstrap";
 import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import './styles/Signup.css'
+import { toast } from 'react-toastify';
 
 function SignupForm({signup}){
     const INITIAL_STATE = { email:"", password: "", name: ""};
@@ -14,6 +15,16 @@ function SignupForm({signup}){
         // console.log(formData);
         let result = await signup(formData);
         if(result.success){
+            toast.success('Registation Successful!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
             setFormData(INITIAL_STATE);
             navigate('/');
         } else{
@@ -33,7 +44,7 @@ function SignupForm({signup}){
         <>
             
             <Form className="Signup-Form" onSubmit={handleSubmit}>
-            <h1 className="Signup-h1">Sign up</h1>
+            <h1 className="Signup-h1">Sign Up</h1>
             <FormGroup>
                 <Label for="email">
                     <b>Email</b>
@@ -42,6 +53,8 @@ function SignupForm({signup}){
                 id="email"
                 name="email"
                 value={formData.email}
+                minLength={6}
+                maxLength={60}
                 placeholder=""
                 type="email"
                 onChange={ handleChange }
@@ -55,6 +68,7 @@ function SignupForm({signup}){
                 id="password"
                 name="password"
                 value={formData.password}
+                minLength={8}
                 type="password"
                 onChange={ handleChange }
                 />
@@ -68,6 +82,8 @@ function SignupForm({signup}){
                 name="name"
                 value={formData.name}
                 placeholder="Example: The Smith Family"
+                minLength={1}
+                maxLength={75}
                 type="text"
                 onChange={ handleChange }
                 />

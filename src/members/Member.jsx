@@ -7,6 +7,7 @@ import MemberNavBar from "../navigation/MemberNavBar.jsx";
 import Loading from "../navigation/Loading";
 import './styles/Member.css'
 import {MemberContext} from "../auth/UserContext";
+import { toast } from 'react-toastify';
 
 function Member({updateMember, getDate}){
     const { currentMember } = useContext(MemberContext);
@@ -17,12 +18,42 @@ function Member({updateMember, getDate}){
     const [formData, setFormData] = useState({firstName: currentMember.firstName, lastName: currentMember.lastName, birthday: currentMember.birthday});
     const todaysDate = getDate();
 
+    useEffect(function loadMemberInfo() {
+        async function getCurrentMemberInfo() {
+            if(currentMember){
+                try{
+                    let member = await PhysiqApi.getMember(currentMember.id);
+                    if(!member.birthday){
+                        member.birthday = "";
+                      }
+                    setFormData({firstName: member.firstName, lastName: member.lastName, birthday: member.birthday})
+                }catch (err) {
+                console.error("App loadDoctorInfo: problem loading", err);
+                }
+            }
+           setIsLoading(false); 
+        }
+        getCurrentMemberInfo();
+      }, []);
+
+
     async function handleSubmit(evt){
         evt.preventDefault();
         let result = await updateMember(formData);
         if(result.success){
+            toast.success('Member Updated!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                }); 
            setFormMessages(['Member Updated!'])
            setUpdateSuccess(true);
+           navigate("/home");
         }
         else{
             setFormMessages(result.errors);
@@ -47,10 +78,19 @@ function Member({updateMember, getDate}){
         if(shouldDelete){
             let result = await deleteMember();
             if(result.success){
-            //    alert("Saved Changes!") 
-            setFormMessages(['Member Deleted!'])
-            setUpdateSuccess(true);
-            navigate("..", { relative: "path"});
+                toast.success('Member Deleted!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    }); 
+                setFormMessages(['Member Deleted!'])
+                setUpdateSuccess(true);
+                navigate("/home");
             }
             else{
                 setFormMessages(result.errors);
@@ -72,7 +112,7 @@ function Member({updateMember, getDate}){
 
 
 
-    if(!currentMember) return <Loading />;
+    if(!currentMember && isLoading) return <Loading />;
     return(
         <>
             <Form className="Member-Form m-4" >
@@ -85,6 +125,8 @@ function Member({updateMember, getDate}){
                 <Input
                 id="firstName"
                 name="firstName"
+                minLength={2}
+                maxLength={35}
                 value={formData.firstName}
                 type="text"
                 onChange={handleChange}
@@ -97,6 +139,8 @@ function Member({updateMember, getDate}){
                 <Input
                 id="lastName"
                 name="lastName"
+                minLength={2}
+                maxLength={50}
                 value={formData.lastName}
                 type="text"
                 onChange={handleChange}
@@ -120,7 +164,7 @@ function Member({updateMember, getDate}){
                     ? formMessages.map(msg => <Alert color={updateSuccess ? "success": "danger"}>{msg}</Alert>)
                     : null
                 }
-                {/* <Button className="btn-danger m-2" onClick={handleDelete}>DELETE MEMBER</Button> */}
+                <Button className="btn-danger m-2" onClick={handleDelete}>DELETE MEMBER</Button>
                 <Button className="btn-dark m-2" onClick={handleSubmit}>Save Changes</Button>
             </Form>
         </>
