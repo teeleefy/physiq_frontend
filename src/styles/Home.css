@@ -26,43 +26,33 @@
 }
 
 .Home-btn{
+    color: black !important;
+    text-decoration: none;
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    transition: color 0.5s;
     margin: 1rem; 
     padding: 1rem;
     background-color: red !important;
     box-shadow: 5px 5px 8px black;
     border:0 !important;
     width: 20vw !important;
-    transition: background-color 2s, box-shadow 2s, width 3s;
+    transition: all 0.6s !important;
 }
 
-.Home-navlink {
-    color: black;
-    text-decoration: none;
-    font-size: 2.5rem;
-    font-weight: bold;
-    transition: color 0.5s;
-}
-
-.Home-btn-hover:hover{
+.Home-btn:hover{
     background-color: black !important;
     box-shadow: 5px 5px 8px red;
-    width: 23vw;
+    width: 23vw !important;
+    font-size: 2.7rem !important;
     color:red !important;
-}
-
-.Home-btn-hover:hover .Home-navlink{
-    color: red;
-    font-size: 2.7rem;
-}
-
-.Home-addMember-btn{
-    color: white !important;
-    width:12vw;
 }
 
 .Home-addMember{
     color: white !important;
     font-size: 1.5rem;
+    text-decoration: none;
+    width:12vw;
 }
 
 .Home-familymember{

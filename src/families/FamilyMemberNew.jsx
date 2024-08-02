@@ -97,7 +97,7 @@ function FamilyMemberNew(){
                 />
             </FormGroup>
            
-            <FormGroup>
+            <FormGroup className="FamilyMember-date-input">
                 <Label className="FamilyMember-label" for="birthday">
                     <b>Birthday</b>
                 </Label>

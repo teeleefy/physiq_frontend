@@ -45,9 +45,9 @@ function Home(){
                 <ListGroup>
                   {renderFamilyMembers()}  
                 </ListGroup>
-                <Button className="Home-addMember-btn btn-dark m-3">
-                    <NavLink className="Home-navlink Home-addMember" to={`/add`}>Add Member</NavLink>
-                </Button>
+                <NavLink to={`/add`}>
+                    <Button className="Home-addMember btn-dark m-3">Add Member</Button>
+                </NavLink>
                 </div>
             )
         }
@@ -59,12 +59,14 @@ function Home(){
             <CardText className="Home-text">
                 Keep track of your family's health, all in one, convenient place!
             </CardText>
-            <Button className="Home-btn Home-btn-hover justify-content-center btn-dark">
-                <NavLink className="Home-navlink Home-navlink-hover" to="/login" >Login</NavLink>         
-            </Button>
-            <Button className="Home-btn Home-btn-hover justify-content-center btn-dark">
-                <NavLink className="Home-navlink Home-navlink-hover" to="/signup" >Sign Up</NavLink>
-            </Button>
+
+            <NavLink to="/login" >
+                <Button className="Home-btn">Login</Button>
+            </NavLink>
+                      
+           <NavLink to="/signup" >
+                <Button className="Home-btn justify-content-center">Sign Up</Button>
+            </NavLink>
             </div>
         )
     }
