@@ -16,3 +16,20 @@
     color: black;
     text-shadow: 3px 3px 5px red;
   }
+
+#Footer-copyright{
+    padding: 0 2rem 0 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 2rem;
+    color: red;
+    text-shadow: 3px 3px 2px black;
+    position: absolute;
+    cursor: default;
+}
+
+
+
+#Footer-rights{
+    font-size: 1.5rem;
+}

@@ -1,6 +1,7 @@
 //import react router
 import { Routes, Route } from "react-router-dom";
 //Component imports
+import FamilyChart from "../FamilyChart";
 import Home from "../Home";
 import Login from "../auth/LoginForm";
 import Signup from "../auth/SignupForm";
@@ -16,7 +17,7 @@ function AppRoutes({ login, logout, signup, updateFamily }) {
     return (
         <div>
           <Routes>
-            <Route path="/" element={<Home/>}/>
+            <Route path="/" element={<FamilyChart/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/add" element={<PrivateFamilyRoute><FamilyMemberNew/></PrivateFamilyRoute>}/>
             <Route path="/profile" element={<PrivateFamilyRoute><FamilyProfile logout={logout} updateFamily={updateFamily}/></PrivateFamilyRoute>}/>

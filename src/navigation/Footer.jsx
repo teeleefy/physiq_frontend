@@ -20,6 +20,7 @@ function Footer() {
                     <NavLink id="Footer-linkedin" className="Footer-navlink" to="https://www.linkedin.com/in/tammy-painter-73416b282/"><i className="fa-brands fa-linkedin"></i></NavLink>
                     <NavLink  id="Footer-github" className="Footer-navlink" to="https://github.com/teeleefy"><i className="fa-brands fa-github"></i></NavLink>
                     <NavLink id="Footer-envelope" className="Footer-navlink" to="mailto:tammypainter.codes@gmail.com"><i className="fa-regular fa-envelope"></i></NavLink>
+                    <NavLink id="Footer-copyright" >Ⓒ <span id="Footer-rights"> 2024 &nbsp;&nbsp;family chart &nbsp;&nbsp;&nbsp;All rights reserved</span></NavLink>
     </div>
   );
 }
