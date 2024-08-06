@@ -17,9 +17,6 @@ class PhysiqApi {
     static token;
   
     static async request(endpoint, data = {}, method = "get") {
-      console.debug("API Call:", endpoint, data, method);
-  
-      
       const url = `${BASE_URL}/${endpoint}`;
       const headers = { Authorization: `Bearer ${PhysiqApi.token}` };
       const params = (method === "get")
