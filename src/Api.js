@@ -1,8 +1,8 @@
 import axios from "axios";
 // const BASE_URL = "http://localhost:3001";
 // const BASE_URL = process.env.VITE_APP_BASE_URL || "http://localhost:3001";
-const BASE_URL = process.env.VITE_APP_BASE_URL;
-// const BASE_URL = "https://physiq-backend.onrender.com";
+// const BASE_URL = process.env.VITE_APP_BASE_URL;
+const BASE_URL = "https://physiq-backend.onrender.com";
 
 /** API Class.
  *
@@ -17,8 +17,7 @@ class PhysiqApi {
     static token;
   
     static async request(endpoint, data = {}, method = "get") {
-      // console.debug("API Call:", endpoint, data, method);
-      console.debug("API Call:", endpoint, method);
+      console.debug("API Call:", endpoint, data, method);
   
       
       const url = `${BASE_URL}/${endpoint}`;

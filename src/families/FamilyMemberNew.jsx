@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 function FamilyMemberNew(){
     let navigate = useNavigate();
     const { currentFamily } = useContext(FamilyContext);
-    // console.log(currentFamily);
+    console.log(currentFamily);
     const [formMessages, setFormMessages] = useState([]);
     const [updateSuccess, setUpdateSuccess] =useState();
     const [formData, setFormData] = useState({firstName: "", lastName: "", birthday: ""});
