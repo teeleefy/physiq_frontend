@@ -27,8 +27,6 @@ function App() {
   // the value of the token is a dependency for this effect.
 
   useEffect(function loadFamilyInfo() {
-    console.debug("App useEffect loadUserInfo", "token=", token);
-
     async function getCurrentFamily() {
       if (token) {
         try {
@@ -41,12 +39,11 @@ function App() {
           console.error("App loadUserInfo: problem loading", err);
           setCurrentFamily(null);
         }
-        // setIsLoading(false);
       }
     }
-    // set infoLoaded to false while async getCurrentUser runs; once the
+    // set infoLoaded to false while async getCurrentFamily runs; once the
     // data is fetched (or even if an error happens!), this will be set back
-    // to false to control the spinner.
+    // to false to control the Loading Component.
     setIsLoading(false);
     getCurrentFamily();
   }, [token]);
