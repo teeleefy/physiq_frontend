@@ -1,0 +1,57 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <a
+      class="Footer-navlink"
+      href="https://tammypainter.carrd.co/"
+      id="Footer-linkedin"
+    >
+      <i
+        class="fa-solid fa-user"
+      />
+    </a>
+    <a
+      class="Footer-navlink"
+      href="https://www.linkedin.com/in/tammy-painter-73416b282/"
+      id="Footer-linkedin"
+    >
+      <i
+        class="fa-brands fa-linkedin"
+      />
+    </a>
+    <a
+      class="Footer-navlink"
+      href="https://github.com/teeleefy"
+      id="Footer-github"
+    >
+      <i
+        class="fa-brands fa-github"
+      />
+    </a>
+    <a
+      class="Footer-navlink"
+      href="mailto:tammypainter.codes@gmail.com"
+      id="Footer-envelope"
+    >
+      <i
+        class="fa-regular fa-envelope"
+      />
+    </a>
+    <a
+      aria-current="page"
+      class="active"
+      href="/"
+      id="Footer-copyright"
+    >
+      Ⓒ 
+      <span
+        id="Footer-rights"
+      >
+         2024   family chart    All rights reserved
+      </span>
+    </a>
+  </div>
+</DocumentFragment>
+`;

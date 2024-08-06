@@ -67,7 +67,7 @@ function DiagnosisUpdate({getDate}){
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                theme: "light",
+                theme: "dark",
                 }); 
            setFormMessages(['Diagnosis Updated!'])
            setUpdateSuccess(true);
@@ -104,7 +104,7 @@ function DiagnosisUpdate({getDate}){
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                    theme: "light",
+                    theme: "dark",
                     });
                 setFormMessages(['Diagnosis Deleted!'])
                 setUpdateSuccess(true);

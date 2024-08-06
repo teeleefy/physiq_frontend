@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="Visit-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Visit Name:
+          </b>
+           
+          <a
+            class="Visit-name"
+            href="/member/1000/visits/undefined"
+          >
+            Follow-up visit
+          </a>
+        </p>
+        <p>
+          <b>
+            Date:
+          </b>
+           2023-04-10
+        </p>
+        <p>
+          <b>
+            Doctor Seen:
+          </b>
+           Dr. Trent
+        </p>
+        <p>
+          <b>
+            Clinic Visited:
+          </b>
+           Main Street Cardio
+        </p>
+        <p>
+          <b>
+            Notes:
+          </b>
+           Followed up after open heart surgery.
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

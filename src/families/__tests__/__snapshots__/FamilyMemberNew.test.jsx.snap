@@ -1,0 +1,110 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FamilyMemberNew > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    id="FamilyMember-main"
+  >
+    <form
+      class="FamilyMember-Form m-4"
+    >
+      <h1
+        class="FamilyMember-h1"
+      >
+        Add Family Member:
+      </h1>
+      <p
+        class="text-secondary"
+      >
+        Fields marked with 
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+         are required.
+      </p>
+      <div
+        class="mb-3"
+      >
+        <label
+          class="FamilyMember-label form-label"
+          for="firstName"
+        >
+          <b>
+            First Name
+          </b>
+          <span
+            class="text-danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class="form-control"
+          id="firstName"
+          maxlength="35"
+          minlength="2"
+          name="firstName"
+          placeholder="Enter first name..."
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="mb-3"
+      >
+        <label
+          class="FamilyMember-label form-label"
+          for="lastName"
+        >
+          <b>
+            Last Name
+          </b>
+          <span
+            class="text-danger"
+          >
+            *
+          </span>
+        </label>
+        <input
+          class="form-control"
+          id="lastName"
+          maxlength="50"
+          minlength="2"
+          name="lastName"
+          placeholder="Enter last name..."
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="FamilyMember-date-input mb-3"
+      >
+        <label
+          class="FamilyMember-label form-label"
+          for="birthday"
+        >
+          <b>
+            Birthday
+          </b>
+        </label>
+        <input
+          class="form-control"
+          id="birthday"
+          name="birthday"
+          placeholder="Enter birthday..."
+          type="date"
+          value=""
+        />
+      </div>
+      <button
+        class="btn-dark btn btn-secondary"
+        type="button"
+      >
+        Add Family Member
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

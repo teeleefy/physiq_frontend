@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FamilyMember > matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="FamilyMember-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Name: 
+          </b>
+          <a
+            class="FamilyMember-name"
+            href="/member/undefined"
+          >
+            Sarah Smith
+          </a>
+        </p>
+        <p>
+          <b>
+            Birthday:
+          </b>
+           1980-09-03
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

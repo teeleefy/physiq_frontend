@@ -1,0 +1,171 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DoctorUpdate > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="Doctor-Form m-4"
+  >
+    <h1
+      class="Doctor-h1"
+    >
+      Update Doctor:
+    </h1>
+    <p
+      class="text-secondary"
+    >
+      Fields marked with 
+      <span
+        class="text-danger"
+      >
+        *
+      </span>
+       are required.
+    </p>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Doctor-label form-label"
+        for="name"
+      >
+        <b>
+          Doctor Name
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="name"
+        maxlength="100"
+        name="name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Doctor-label form-label"
+        for="specialty"
+      >
+        <b>
+          Specialty
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="specialty"
+        maxlength="100"
+        name="specialty"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Doctor-label form-label"
+        for="clinic"
+      >
+        <b>
+          Clinic
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="clinic"
+        maxlength="100"
+        name="clinic"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Doctor-label form-label"
+        for="address"
+      >
+        <b>
+          Address
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="address"
+        maxlength="100"
+        name="address"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Doctor-label form-label"
+        for="phone"
+      >
+        <b>
+          Phone
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="phone"
+        maxlength="25"
+        name="phone"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Doctor-label form-label"
+        for="notes"
+      >
+        <b>
+          Notes
+        </b>
+      </label>
+      <textarea
+        class="form-control"
+        id="notes"
+        maxlength="250"
+        name="notes"
+      />
+    </div>
+    <p
+      class="text-secondary"
+    >
+      0/250 Characters
+    </p>
+    <button
+      class="btn-danger m-2 btn btn-secondary"
+      type="button"
+    >
+      DELETE DOCTOR
+    </button>
+    <button
+      class="btn-dark m-2 btn btn-secondary"
+      type="button"
+    >
+      Save Changes
+    </button>
+  </form>
+</DocumentFragment>
+`;

@@ -1,0 +1,46 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="Allergy-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Allergy Name:
+          </b>
+           
+          <a
+            class="Allergy-name"
+            href="/member/1000/allergies/undefined"
+          >
+            bees
+          </a>
+        </p>
+        <p>
+          <b>
+            Reaction:
+          </b>
+           hives
+        </p>
+        <p>
+          <b>
+            Notes:
+          </b>
+           Carry epipen.
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

@@ -1,0 +1,64 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="Doctor-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Doctor Name:
+          </b>
+           
+          <a
+            class="Doctor-name"
+            href="/member/1000/doctors/undefined"
+          >
+            Dr. Jones
+          </a>
+        </p>
+        <p>
+          <b>
+            Specialty:
+          </b>
+           Pulmonology
+        </p>
+        <p>
+          <b>
+            Clinic:
+          </b>
+           Main Street Pulmonology
+        </p>
+        <p>
+          <b>
+            Address:
+          </b>
+           100 Main Street
+        </p>
+        <p>
+          <b>
+            Phone:
+          </b>
+           (555) 555-5555
+        </p>
+        <p>
+          <b>
+            Notes:
+          </b>
+           See him for asthma management.
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

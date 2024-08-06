@@ -55,7 +55,7 @@ function SignupForm({signup}){
                 value={formData.email}
                 minLength={6}
                 maxLength={60}
-                placeholder=""
+                placeholder="Enter email..."
                 type="email"
                 onChange={ handleChange }
                 />
@@ -67,6 +67,7 @@ function SignupForm({signup}){
                 <Input
                 id="password"
                 name="password"
+                placeholder="Enter password..."
                 value={formData.password}
                 minLength={8}
                 type="password"

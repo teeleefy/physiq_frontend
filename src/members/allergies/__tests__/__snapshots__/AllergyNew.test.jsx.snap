@@ -1,0 +1,108 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AllergyNew > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="AllergyNew-Form m-4"
+  >
+    <h1
+      class="Allergy-h1"
+    >
+      Add Allergy:
+    </h1>
+    <p
+      class="text-secondary"
+    >
+      Fields marked with 
+      <span
+        class="text-danger"
+      >
+        *
+      </span>
+       are required.
+    </p>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Allergy-label form-label"
+        for="name"
+      >
+        <b>
+          Allergy Name
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="name"
+        maxlength="50"
+        name="name"
+        placeholder="Enter allergy name..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Allergy-label form-label"
+        for="reaction"
+      >
+        <b>
+          Reaction
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="reaction"
+        maxlength="100"
+        name="reaction"
+        placeholder="Enter reaction..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Allergy-label form-label"
+        for="notes"
+      >
+        <b>
+          Notes
+        </b>
+      </label>
+      <textarea
+        class="form-control"
+        id="notes"
+        maxlength="250"
+        name="notes"
+        placeholder="Enter notes..."
+      />
+    </div>
+    <p
+      class="text-secondary"
+    >
+      0/250 Characters
+    </p>
+    <button
+      class="btn-dark btn btn-secondary"
+      type="button"
+    >
+      Add Allergy
+    </button>
+  </form>
+</DocumentFragment>
+`;

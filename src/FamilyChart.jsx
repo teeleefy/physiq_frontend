@@ -6,24 +6,7 @@ import PhysiqApi from "./Api.js";
 import './styles/FamilyChart.css'
 
 function FamilyChart(){
-    let { currentFamily, setCurrentFamily, setToken } = useContext(FamilyContext);
-    const [isLoading, setIsLoading] = useState(true);
-      
-        useEffect(function loadFamilyInfo() {
-          async function getCurrentFamily() {
-                try{
-                    let family = await PhysiqApi.getCurrentFamily(currentFamily.id);
-                    console.log(family);
-                    setCurrentFamily(family);
-                }catch (err) {
-                console.error("App loadUserInfo: problem loading", err);
-                // setCurrentMember(null);
-                
-              }
-             setIsLoading(false); 
-          }
-          getCurrentFamily();
-        }, []);
+    let { currentFamily } = useContext(FamilyContext);
 
     function renderFamilyChart(){
         if(currentFamily){

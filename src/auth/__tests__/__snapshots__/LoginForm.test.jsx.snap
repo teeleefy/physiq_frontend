@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="Login-Form"
+  >
+    <h1
+      class="Login-h1"
+    >
+      Login
+    </h1>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="form-label"
+        for="email"
+      >
+        <b>
+          Email
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="email"
+        maxlength="60"
+        minlength="6"
+        name="email"
+        placeholder="Enter email..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="form-label"
+        for="password"
+      >
+        <b>
+          Password
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="password"
+        minlength="8"
+        name="password"
+        placeholder="Enter password..."
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      class="Login-btn btn-dark btn btn-secondary"
+    >
+      Submit
+    </button>
+  </form>
+</DocumentFragment>
+`;

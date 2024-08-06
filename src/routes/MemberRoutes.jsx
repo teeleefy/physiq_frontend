@@ -35,9 +35,11 @@ import Goals from "../members/goals/Goals.jsx";
 import GoalNew from "../members/goals/GoalNew.jsx";
 import GoalUpdate from "../members/goals/GoalUpdate.jsx";
 //other
-import NotFound from "../NotFound";
+import NotFound from "../navigation/NotFound.jsx";
+//import getDate
+import getDate from "../helpers/getDate"
 
-function MemberRoutes({updateMember, getDate}) {
+function MemberRoutes({updateMember}) {
     return (
         <div className="pt-3">
           <Routes>

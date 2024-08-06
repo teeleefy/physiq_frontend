@@ -1,0 +1,236 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`InsuranceNew > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="InsuranceNew-Form m-4 pt-1"
+  >
+    <h1
+      class="Insurance-h1"
+    >
+      Add Insurance:
+    </h1>
+    <p
+      class="text-secondary"
+    >
+      Fields marked with 
+      <span
+        class="text-danger"
+      >
+        *
+      </span>
+       are required.
+    </p>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Insurance-label form-label"
+        for="companyName"
+      >
+        <b>
+          Company Name
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="companyName"
+        maxlength="100"
+        name="companyName"
+        placeholder="Enter insurance company name..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="Insurance-date-input mb-3"
+    >
+      <label
+        class="Insurance-label form-label"
+        for="type"
+      >
+        <b>
+          Type of Insurance
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <select
+        class="form-select"
+        id="type"
+        maxlength="50"
+        name="type"
+      >
+        <option
+          value="Medical"
+        >
+          Medical
+        </option>
+        <option
+          value="Dental"
+        >
+          Dental
+        </option>
+        <option
+          value="Vision"
+        >
+          Vision
+        </option>
+        <option
+          value="Medical/Dental"
+        >
+          Medical/Dental
+        </option>
+        <option
+          value="Other"
+        >
+          Other
+        </option>
+      </select>
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Insurance-label form-label"
+        for="insuredName"
+      >
+        <b>
+          Insured Name
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="insuredName"
+        maxlength="100"
+        name="insuredName"
+        placeholder="Enter name of person listed on card..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="Insurance-date-input mb-3"
+    >
+      <label
+        class="Insurance-label form-label"
+        for="startDate"
+      >
+        <b>
+          Start Date
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="startDate"
+        max="2024-08-05"
+        name="startDate"
+        placeholder="Enter start date..."
+        type="date"
+        value=""
+      />
+    </div>
+    <div
+      class="Insurance-date-input mb-3"
+    >
+      <label
+        class="Insurance-label form-label"
+        for="endDate"
+      >
+        <b>
+          End Date
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="endDate"
+        min="2024-08-05"
+        name="endDate"
+        placeholder="Enter end date..."
+        type="date"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Insurance-label form-label"
+        for="groupNum"
+      >
+        <b>
+          Group Number
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="groupNum"
+        maxlength="25"
+        name="groupNum"
+        placeholder="Enter group number..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Insurance-label form-label"
+        for="contractNum"
+      >
+        <b>
+          Contract Number
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="contractNum"
+        maxlength="25"
+        name="contractNum"
+        placeholder="Enter contract number..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Insurance-label form-label"
+        for="notes"
+      >
+        <b>
+          Notes
+        </b>
+      </label>
+      <textarea
+        class="form-control"
+        id="notes"
+        maxlength="250"
+        name="notes"
+        placeholder="Enter notes..."
+      />
+    </div>
+    <p
+      class="text-secondary"
+    >
+      0/250 Characters
+    </p>
+    <button
+      class="btn-dark btn btn-secondary"
+      type="button"
+    >
+      Add Insurance
+    </button>
+  </form>
+</DocumentFragment>
+`;

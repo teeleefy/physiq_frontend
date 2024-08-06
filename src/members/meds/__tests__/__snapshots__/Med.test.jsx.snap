@@ -1,0 +1,70 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="Med-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Medication Name:
+          </b>
+           
+          <a
+            class="Med-name"
+            href="/member/1000/meds/undefined"
+          >
+            Lisinopril
+          </a>
+        </p>
+        <p>
+          <b>
+            Indication:
+          </b>
+           High blood pressure
+        </p>
+        <p>
+          <b>
+            Dose:
+          </b>
+           25mg twice a day
+        </p>
+        <p>
+          <b>
+            Start Date:
+          </b>
+           2023-12-20
+        </p>
+        <p>
+          <b>
+            End Date:
+          </b>
+           2024-12-20
+        </p>
+        <p>
+          <b>
+            Prescribed By:
+          </b>
+           Dr. Jones
+        </p>
+        <p>
+          <b>
+            Notes:
+          </b>
+           Take with food.
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

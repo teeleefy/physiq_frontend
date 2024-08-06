@@ -56,6 +56,7 @@ function LoginForm({login}){
                 <Input
                 id="email"
                 name="email"
+                placeholder="Enter email..."
                 minLength={6}
                 maxLength={60}
                 type="text"
@@ -70,6 +71,7 @@ function LoginForm({login}){
                 <Input
                 id="password"
                 name="password"
+                placeholder="Enter password..."
                 value={formData.password}
                 type="password"
                 minLength={8}

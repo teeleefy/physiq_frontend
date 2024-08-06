@@ -1,0 +1,52 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="Symptom-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Symptom Name:
+          </b>
+           
+          <a
+            class="Symptom-name"
+            href="/member/1000/symptoms/undefined"
+          >
+            Headache
+          </a>
+        </p>
+        <p>
+          <b>
+            Start Date:
+          </b>
+           2024-07-20
+        </p>
+        <p>
+          <b>
+            End Date:
+          </b>
+           2024-08-01
+        </p>
+        <p>
+          <b>
+            Notes:
+          </b>
+           Moderate to severe. On and off every day. Worse at night.
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

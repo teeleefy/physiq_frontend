@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`GoalUpdate > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="Goal-Form m-4"
+  >
+    <h1
+      class="Goal-h1"
+    >
+      Update Goal:
+    </h1>
+    <p
+      class="text-secondary"
+    >
+      Fields marked with 
+      <span
+        class="text-danger"
+      >
+        *
+      </span>
+       are required.
+    </p>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Goal-label form-label"
+        for="goalName"
+      >
+        <b>
+          Goal Name
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="goalName"
+        maxlength="100"
+        name="goalName"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Goal-label form-label"
+        for="goalDetails"
+      >
+        <b>
+          Details
+        </b>
+      </label>
+      <textarea
+        class="form-control"
+        id="goalDetails"
+        maxlength="250"
+        name="goalDetails"
+      />
+    </div>
+    <p
+      class="text-secondary"
+    >
+      0/250 Characters
+    </p>
+    <button
+      class="btn-danger m-2 btn btn-secondary"
+      type="button"
+    >
+      DELETE GOAL
+    </button>
+    <button
+      class="btn-dark m-2 btn btn-secondary"
+      type="button"
+    >
+      Save Changes
+    </button>
+  </form>
+</DocumentFragment>
+`;

@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="Goal-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Goal Name:
+          </b>
+           
+          <a
+            class="Goal-name"
+            href="/member/1000/goals/undefined"
+          >
+            Make appointment with Dr. Jones
+          </a>
+        </p>
+        <p>
+          <b>
+            Details:
+          </b>
+           Need to discuss medication and get labs done.
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

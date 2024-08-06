@@ -1,0 +1,136 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    id="Home-main"
+  >
+    <div
+      id="Home-message"
+    >
+      <div>
+        <h1
+          class="Home-title text-center"
+        >
+          The Smith Family Dashboard
+        </h1>
+        <ul
+          class="list-group"
+        />
+        <a
+          class=""
+          href="/add"
+        >
+          <button
+            class="Home-addMember btn-dark m-3 btn btn-secondary"
+          >
+            Add Member
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Home when logged out > matches snapshot when logged out 1`] = `
+<DocumentFragment>
+  <div
+    id="Home-main"
+  >
+    <div
+      id="Home-message"
+    >
+      <div
+        class="Home-btns"
+      >
+        <div
+          class="text-center card-title"
+        >
+          <h1
+            class="Home-title"
+          >
+            Welcome to fa
+            <b
+              class="mychart"
+            >
+              m
+            </b>
+            il
+            <b
+              class="mychart"
+            >
+              y
+            </b>
+             
+            <b
+              class="mychart"
+            >
+              chart
+            </b>
+            !
+          </h1>
+        </div>
+        <p
+          class="Home-text card-text"
+        >
+          Keep track of your family's health, all in one, convenient place!
+        </p>
+        <a
+          class=""
+          href="/login"
+        >
+          <button
+            class="Home-btn btn btn-secondary"
+          >
+            Login
+          </button>
+        </a>
+        <a
+          class=""
+          href="/signup"
+        >
+          <button
+            class="Home-btn justify-content-center btn btn-secondary"
+          >
+            Sign Up
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Home with Family Context > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    id="Home-main"
+  >
+    <div
+      id="Home-message"
+    >
+      <div>
+        <h1
+          class="Home-title text-center"
+        >
+          The Smith Family Dashboard
+        </h1>
+        <ul
+          class="list-group"
+        />
+        <a
+          class=""
+          href="/add"
+        >
+          <button
+            class="Home-addMember btn-dark m-3 btn btn-secondary"
+          >
+            Add Member
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

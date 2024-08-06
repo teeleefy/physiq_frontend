@@ -1,0 +1,380 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FamilyChart > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    id="FamilyChart-main"
+  >
+    <div
+      id="FamilyChart-message"
+    >
+      <div
+        class="text-center card-title"
+      >
+        <h1
+          class="Home-title"
+        >
+          Welcome to fa
+          <b
+            class="mychart"
+          >
+            m
+          </b>
+          il
+          <b
+            class="mychart"
+          >
+            y
+          </b>
+           
+          <b
+            class="mychart"
+          >
+            chart
+          </b>
+          !
+        </h1>
+      </div>
+      <p
+        class="card-text"
+      />
+      <h2>
+        First off, what is fa
+        <b
+          class="mychart"
+        >
+          m
+        </b>
+        il
+        <b
+          class="mychart"
+        >
+          y
+        </b>
+         
+        <b
+          class="mychart"
+        >
+          chart
+        </b>
+        ? 👀
+      </h2>
+      <p>
+        That's simple! It is an easy-to-use app that allows you to chart on yourself and your loved ones!
+      </p>
+      <h2>
+        ...And why would you want to do that? 🧐
+      </h2>
+      <p>
+        When it comes to managing your family's health care, there are a 
+        <b>
+          LOT
+        </b>
+         of little details to keep track of! 
+        <b>
+          When
+        </b>
+         was your child's last dentist appointment? 
+        <b>
+          Who
+        </b>
+         was that doctor you saw last fall before you moved states? 
+        <b>
+          What
+        </b>
+         is the name of that medication that doctor prescribed you, and 
+        <b>
+          why
+        </b>
+         do you even take it?  
+        <b>
+          It's a lot to keep up with!
+        </b>
+      </p>
+      <h2>
+        That's where fa
+        <b
+          class="mychart"
+        >
+          m
+        </b>
+        il
+        <b
+          class="mychart"
+        >
+          y
+        </b>
+         
+        <b
+          class="mychart"
+        >
+          chart
+        </b>
+         comes in to play! 💪
+      </h2>
+      <p>
+        Here, you can add yourself and your family members to your group, connect to each member's personal portal, and add, edit, and delete their personal health-related details.  This will be a very helpful tool for you and your family as those details pile up over the years! After all, Nurses and Doctors keep records of your health journey... 
+        <b>
+          Why can't you?
+        </b>
+      </p>
+      <h2>
+        Sounds great! How do I get started?? 👏
+      </h2>
+      <p>
+        <b>
+          First,
+        </b>
+         add a member to your group in your Home Dashboard.  
+        <b>
+          Next,
+        </b>
+         click their name to transport to their Member Portal. 
+        <b>
+          From there,
+        </b>
+         navigate through the different tabs to add allergies, diagnoses, etc.   
+        <b>
+          Later,
+        </b>
+         you can easily update or delete these details from their respective pages in the Member Portal!
+      </p>
+      <a
+        class=""
+        href="/home"
+      >
+        <button
+          class="FamilyChart-btn btn btn-secondary"
+        >
+          Let's Get Started!
+        </button>
+      </a>
+      <p />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`FamilyChart when logged out > matches snapshot when logged out 1`] = `
+<DocumentFragment>
+  <div
+    id="FamilyChart-main"
+  >
+    <div
+      id="FamilyChart-message"
+    >
+      <div
+        class="Home-btns"
+      >
+        <div
+          class="text-center card-title"
+        >
+          <h1
+            class="Home-title"
+          >
+            Welcome to fa
+            <b
+              class="mychart"
+            >
+              m
+            </b>
+            il
+            <b
+              class="mychart"
+            >
+              y
+            </b>
+             
+            <b
+              class="mychart"
+            >
+              chart
+            </b>
+            !
+          </h1>
+        </div>
+        <p
+          class="Home-text card-text"
+        >
+          Keep track of your family's health, all in one, convenient place!
+        </p>
+        <a
+          class=""
+          href="/login"
+        >
+          <button
+            class="FamilyChart-btn btn btn-secondary"
+          >
+            Login
+          </button>
+        </a>
+        <a
+          class=""
+          href="/signup"
+        >
+          <button
+            class="FamilyChart-btn justify-content-center btn btn-secondary"
+          >
+            Sign Up
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`FamilyChart with Family Context > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    id="FamilyChart-main"
+  >
+    <div
+      id="FamilyChart-message"
+    >
+      <div
+        class="text-center card-title"
+      >
+        <h1
+          class="Home-title"
+        >
+          Welcome to fa
+          <b
+            class="mychart"
+          >
+            m
+          </b>
+          il
+          <b
+            class="mychart"
+          >
+            y
+          </b>
+           
+          <b
+            class="mychart"
+          >
+            chart
+          </b>
+          !
+        </h1>
+      </div>
+      <p
+        class="card-text"
+      />
+      <h2>
+        First off, what is fa
+        <b
+          class="mychart"
+        >
+          m
+        </b>
+        il
+        <b
+          class="mychart"
+        >
+          y
+        </b>
+         
+        <b
+          class="mychart"
+        >
+          chart
+        </b>
+        ? 👀
+      </h2>
+      <p>
+        That's simple! It is an easy-to-use app that allows you to chart on yourself and your loved ones!
+      </p>
+      <h2>
+        ...And why would you want to do that? 🧐
+      </h2>
+      <p>
+        When it comes to managing your family's health care, there are a 
+        <b>
+          LOT
+        </b>
+         of little details to keep track of! 
+        <b>
+          When
+        </b>
+         was your child's last dentist appointment? 
+        <b>
+          Who
+        </b>
+         was that doctor you saw last fall before you moved states? 
+        <b>
+          What
+        </b>
+         is the name of that medication that doctor prescribed you, and 
+        <b>
+          why
+        </b>
+         do you even take it?  
+        <b>
+          It's a lot to keep up with!
+        </b>
+      </p>
+      <h2>
+        That's where fa
+        <b
+          class="mychart"
+        >
+          m
+        </b>
+        il
+        <b
+          class="mychart"
+        >
+          y
+        </b>
+         
+        <b
+          class="mychart"
+        >
+          chart
+        </b>
+         comes in to play! 💪
+      </h2>
+      <p>
+        Here, you can add yourself and your family members to your group, connect to each member's personal portal, and add, edit, and delete their personal health-related details.  This will be a very helpful tool for you and your family as those details pile up over the years! After all, Nurses and Doctors keep records of your health journey... 
+        <b>
+          Why can't you?
+        </b>
+      </p>
+      <h2>
+        Sounds great! How do I get started?? 👏
+      </h2>
+      <p>
+        <b>
+          First,
+        </b>
+         add a member to your group in your Home Dashboard.  
+        <b>
+          Next,
+        </b>
+         click their name to transport to their Member Portal. 
+        <b>
+          From there,
+        </b>
+         navigate through the different tabs to add allergies, diagnoses, etc.   
+        <b>
+          Later,
+        </b>
+         you can easily update or delete these details from their respective pages in the Member Portal!
+      </p>
+      <a
+        class=""
+        href="/home"
+      >
+        <button
+          class="FamilyChart-btn btn btn-secondary"
+        >
+          Let's Get Started!
+        </button>
+      </a>
+      <p />
+    </div>
+  </div>
+</DocumentFragment>
+`;

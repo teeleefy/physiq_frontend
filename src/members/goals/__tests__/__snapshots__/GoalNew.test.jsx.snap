@@ -1,0 +1,163 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Goal > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="GoalNew-Form m-4"
+  >
+    <h1
+      class="Goal-h1"
+    >
+      Add Goal:
+    </h1>
+    <p
+      class="text-secondary"
+    >
+      Fields marked with 
+      <span
+        class="text-danger"
+      >
+        *
+      </span>
+       are required.
+    </p>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Goal-label form-label"
+        for="goalName"
+      >
+        <b>
+          Goal Name 
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="goalName"
+        maxlength="100"
+        name="goalName"
+        placeholder="Enter goal name..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Goal-label form-label"
+        for="goalDetails"
+      >
+        <b>
+          Details
+        </b>
+      </label>
+      <textarea
+        class="form-control"
+        id="goalDetails"
+        maxlength="250"
+        name="goalDetails"
+        placeholder="Enter goal details..."
+      />
+    </div>
+    <p
+      class="text-secondary"
+    >
+      0/250 Characters
+    </p>
+    <button
+      class="btn-dark btn btn-secondary"
+      type="button"
+    >
+      Add Goal
+    </button>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`Goal New > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="GoalNew-Form m-4"
+  >
+    <h1
+      class="Goal-h1"
+    >
+      Add Goal:
+    </h1>
+    <p
+      class="text-secondary"
+    >
+      Fields marked with 
+      <span
+        class="text-danger"
+      >
+        *
+      </span>
+       are required.
+    </p>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Goal-label form-label"
+        for="goalName"
+      >
+        <b>
+          Goal Name 
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="goalName"
+        maxlength="100"
+        name="goalName"
+        placeholder="Enter goal name..."
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Goal-label form-label"
+        for="goalDetails"
+      >
+        <b>
+          Details
+        </b>
+      </label>
+      <textarea
+        class="form-control"
+        id="goalDetails"
+        maxlength="250"
+        name="goalDetails"
+        placeholder="Enter goal details..."
+      />
+    </div>
+    <p
+      class="text-secondary"
+    >
+      0/250 Characters
+    </p>
+    <button
+      class="btn-dark btn btn-secondary"
+      type="button"
+    >
+      Add Goal
+    </button>
+  </form>
+</DocumentFragment>
+`;

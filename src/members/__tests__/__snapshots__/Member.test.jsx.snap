@@ -1,0 +1,110 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Member > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="Member-Form m-4"
+  >
+    <h1
+      class="Member-h1"
+    >
+      Update Member:
+    </h1>
+    <p
+      class="text-secondary"
+    >
+      Fields marked with 
+      <span
+        class="text-danger"
+      >
+        *
+      </span>
+       are required.
+    </p>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Member-label form-label"
+        for="firstName"
+      >
+        <b>
+          First Name
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="firstName"
+        maxlength="35"
+        minlength="2"
+        name="firstName"
+        type="text"
+        value="Sarah"
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Member-label form-label"
+        for="lastName"
+      >
+        <b>
+          Last Name
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="lastName"
+        maxlength="50"
+        minlength="2"
+        name="lastName"
+        type="text"
+        value="Smith"
+      />
+    </div>
+    <div
+      class="Member-date-input mb-3"
+    >
+      <label
+        class="Member-label form-label"
+        for="birthday"
+      >
+        <b>
+          Birthday
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="birthday"
+        max="2024-08-05"
+        name="birthday"
+        type="date"
+        value="1980-09-03"
+      />
+    </div>
+    <button
+      class="btn-danger m-2 btn btn-secondary"
+      type="button"
+    >
+      DELETE MEMBER
+    </button>
+    <button
+      class="btn-dark m-2 btn btn-secondary"
+      type="button"
+    >
+      Save Changes
+    </button>
+  </form>
+</DocumentFragment>
+`;

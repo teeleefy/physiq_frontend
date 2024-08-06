@@ -1,0 +1,46 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="Diagnosis-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Diagnosis Name:
+          </b>
+           
+          <a
+            class="Diagnosis-name"
+            href="/member/1000/diagnoses/undefined"
+          >
+            Hypertension
+          </a>
+        </p>
+        <p>
+          <b>
+            Date Received:
+          </b>
+           2010/01/01
+        </p>
+        <p>
+          <b>
+            Notes:
+          </b>
+           Controlled by lisinopril.
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

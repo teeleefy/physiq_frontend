@@ -1,0 +1,143 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FamilyProfile > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    id="FamilyMember-main"
+  >
+    <form
+      class="FamilyMember-Form m-4"
+    >
+      <div
+        class="mb-3"
+      >
+        <label
+          class="FamilyMember-label form-label"
+          for="email"
+        >
+          <b>
+            Update Email:
+          </b>
+        </label>
+        <input
+          class="form-control"
+          id="email"
+          maxlength="60"
+          minlength="6"
+          name="email"
+          type="text"
+          value="smith@smith.com"
+        />
+      </div>
+      <button
+        class="btn-dark m-2 btn btn-secondary"
+        type="button"
+      >
+        Save Changes
+      </button>
+    </form>
+    <br />
+    <form
+      class="FamilyMember-Form m-4"
+    >
+      <div
+        class="mb-3"
+      >
+        <label
+          class="FamilyMember-label form-label"
+          for="name"
+        >
+          <b>
+            Update Family Name:
+          </b>
+        </label>
+        <input
+          class="form-control"
+          id="name"
+          maxlength="75"
+          minlength="1"
+          name="name"
+          type="text"
+          value="The Smith Family"
+        />
+      </div>
+      <button
+        class="btn-dark m-2 btn btn-secondary"
+        type="button"
+      >
+        Save Changes
+      </button>
+    </form>
+    <br />
+    <form
+      class="FamilyMember-Form m-4"
+    >
+      <div
+        class="mb-3"
+      >
+        <label
+          class="FamilyMember-label form-label"
+          for="oldPassword"
+        >
+          <b>
+            Update Password:
+          </b>
+        </label>
+        <input
+          class="form-control"
+          id="oldPassword"
+          minlength="8"
+          name="oldPassword"
+          placeholder="Enter old password..."
+          type="password"
+          value=""
+        />
+        <input
+          class="form-control"
+          id="newPassword"
+          minlength="8"
+          name="newPassword"
+          placeholder="Enter new password..."
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        class="btn-dark m-2 btn btn-secondary"
+        type="button"
+      >
+        Save Changes
+      </button>
+    </form>
+    <br />
+    <form
+      class="FamilyMember-Form m-4"
+    >
+      <label
+        class="FamilyMember-label form-label"
+        for="name"
+      >
+        <b>
+          DELETE FAMILY:
+        </b>
+      </label>
+      <p
+        class="text-secondary"
+      >
+        <span
+          class="text-danger"
+        >
+          WARNING: 
+        </span>
+        This is permanent!
+      </p>
+      <button
+        class="btn-danger m-2 btn btn-secondary"
+        type="button"
+      >
+        DELETE FAMILY
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

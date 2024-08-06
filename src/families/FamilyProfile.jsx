@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 
 function FamilyProfile({logout, updateFamily}){
     let { currentFamily, setCurrentFamily } = useContext(FamilyContext);
-    console.log("FAMILY PROFILE", currentFamily);
+    // console.log("FAMILY PROFILE", currentFamily);
     let navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [emailFormMessages, setEmailFormMessages] = useState([]);
@@ -37,7 +37,7 @@ function FamilyProfile({logout, updateFamily}){
                 }); 
            setEmailFormMessages(['Family Updated!'])
            setUpdateSuccess(true);
-           navigate("/");
+           navigate("/home");
         }
         else{
             setEmailFormMessages(result.errors);
@@ -61,7 +61,7 @@ function FamilyProfile({logout, updateFamily}){
                 }); 
            setNameFormMessages(['Family Updated!'])
            setUpdateSuccess(true);
-           navigate("/");
+           navigate("/home");
         }
         else{
             setNameFormMessages(result.errors);
@@ -95,7 +95,7 @@ function FamilyProfile({logout, updateFamily}){
                 }); 
            setPasswordFormMessages(['Password Updated!'])
            setUpdateSuccess(true);
-           navigate("/");
+           navigate("/home");
         }
         else{
             setPasswordFormMessages(result.errors);

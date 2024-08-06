@@ -7,4 +7,9 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Ensures the output directory is dist
   },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './__tests__/setup.js', // assuming the test folder is in the root of our project
+  }
 })

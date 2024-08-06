@@ -4,10 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import FamilyChart from "../FamilyChart";
 import Home from "../Home";
 import Login from "../auth/LoginForm";
-import Signup from "../auth/SignupForm";
+import Signup from "../auth/SignUpForm";
 import MemberPortal from "../members/MemberPortal"
 import FamilyProfile from "../families/FamilyProfile";
-import NotFound from "../NotFound";
+import NotFound from "../navigation/NotFound";
 import PrivateFamilyRoute from "./PrivateFamilyRoute";
 import PrivateMemberRoute from "./PrivateMemberRoute";
 import FamilyMemberNew from "../families/FamilyMemberNew";

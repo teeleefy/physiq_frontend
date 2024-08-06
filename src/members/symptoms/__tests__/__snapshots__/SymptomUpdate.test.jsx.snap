@@ -1,0 +1,126 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SymptomUpdate > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="Symptom-Form m-4"
+  >
+    <h1
+      class="Symptom-h1"
+    >
+      Update Symptom:
+    </h1>
+    <p
+      class="text-secondary"
+    >
+      Fields marked with 
+      <span
+        class="text-danger"
+      >
+        *
+      </span>
+       are required.
+    </p>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Symptom-label form-label"
+        for="name"
+      >
+        <b>
+          Symptom Name
+        </b>
+        <span
+          class="text-danger"
+        >
+          *
+        </span>
+      </label>
+      <input
+        class="form-control"
+        id="name"
+        maxlength="100"
+        name="name"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="Symptom-date-input mb-3"
+    >
+      <label
+        class="Symptom-label form-label"
+        for="startDate"
+      >
+        <b>
+          Start Date
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="startDate"
+        max="2024-08-05"
+        name="startDate"
+        type="date"
+        value=""
+      />
+    </div>
+    <div
+      class="Symptom-date-input mb-3"
+    >
+      <label
+        class="Symptom-label form-label"
+        for="endDate"
+      >
+        <b>
+          End Date
+        </b>
+      </label>
+      <input
+        class="form-control"
+        id="endDate"
+        max="2024-08-05"
+        name="endDate"
+        type="date"
+        value=""
+      />
+    </div>
+    <div
+      class="mb-3"
+    >
+      <label
+        class="Symptom-label form-label"
+        for="notes"
+      >
+        <b>
+          Notes
+        </b>
+      </label>
+      <textarea
+        class="form-control"
+        id="notes"
+        maxlength="250"
+        name="notes"
+      />
+    </div>
+    <p
+      class="text-secondary"
+    >
+      0/250 Characters
+    </p>
+    <button
+      class="btn-danger m-2 btn btn-secondary"
+      type="button"
+    >
+      DELETE SYMPTOM
+    </button>
+    <button
+      class="btn-dark m-2 btn btn-secondary"
+      type="button"
+    >
+      Save Changes
+    </button>
+  </form>
+</DocumentFragment>
+`;

@@ -7,7 +7,9 @@ function NotFound(){
                 <h1>404</h1>
             </CardTitle>
             <CardBody>
-                <h2>Sorry. Unable to locate that.</h2> 
+                <CardText>
+                   <h2>Sorry. Unable to locate that.</h2>  
+                </CardText>
             </CardBody>
         </Card>
     )

@@ -14,7 +14,7 @@ function Home(){
           async function getCurrentFamily() {
                 try{
                     let family = await PhysiqApi.getCurrentFamily(currentFamily.id);
-                    console.log(family);
+                    // console.log(family);
                     setCurrentFamily(family);
                 }catch (err) {
                 console.error("App loadUserInfo: problem loading", err);

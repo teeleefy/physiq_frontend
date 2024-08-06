@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="list-group-item"
+  >
+    <div
+      class="Insurance-card card"
+    >
+      <div
+        class="card-body"
+      >
+        <p
+          class="card-text"
+        />
+        <p>
+          <b>
+            Insurance Name:
+          </b>
+           
+          <a
+            class="InsuranceCard-name"
+            href="/member/1000/insurance/undefined"
+          />
+        </p>
+        <p>
+          <b>
+            Insurance Type:
+          </b>
+           Medical
+        </p>
+        <p>
+          <b>
+            Notes:
+          </b>
+           Free health insurance. Remember to fill out paperwork again in November to reapply for free program.
+        </p>
+        <p />
+      </div>
+    </div>
+  </li>
+</DocumentFragment>
+`;

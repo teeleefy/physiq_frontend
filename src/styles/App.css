@@ -28,13 +28,6 @@ main {
   height: 7vh;
 }
 
-/* #footer{
-  position: fixed;
-  height: 5vh;
-  bottom: 0;
-  width: 100%;
-} */
-
 #footer{
   position: absolute;
   height: 5vh;
