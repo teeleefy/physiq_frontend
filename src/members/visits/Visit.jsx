@@ -40,10 +40,10 @@ function Visit({visit, memberId}){
     }
 
     function renderNotes(){
-        if(visit.description){
+        if(visit.notes){
             return (
                 <>
-                <p><b>Notes:</b> {visit.description}</p>
+                <p><b>Notes:</b> {visit.notes}</p>
                 </>
             )
         }
