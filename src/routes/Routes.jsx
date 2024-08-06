@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import FamilyChart from "../FamilyChart";
 import Home from "../Home";
 import Login from "../auth/LoginForm";
-import Signup from "../auth/SignUpForm";
+import Signup from "../auth/SignupForm";
 import MemberPortal from "../members/MemberPortal"
 import FamilyProfile from "../families/FamilyProfile";
 import NotFound from "../navigation/NotFound";

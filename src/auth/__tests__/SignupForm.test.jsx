@@ -1,5 +1,5 @@
 import { renderWithRouter, screen } from '../../../__tests__/test-tools';
-import SignupForm from '../SignUpForm.jsx';
+import SignupForm from '../SignupForm.jsx';
 
 describe('SignupForm', () => {
   it('renders the LoginForm component', () => {
