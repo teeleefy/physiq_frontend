@@ -17,7 +17,7 @@ class PhysiqApi {
     static token;
   
     static async request(endpoint, data = {}, method = "get") {
-      // console.debug("API Call:", endpoint, data, method);
+      console.debug("API Call:", endpoint, data, method);
       // console.debug("API Call:", endpoint, method);
   
       
