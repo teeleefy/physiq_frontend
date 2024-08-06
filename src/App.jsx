@@ -27,7 +27,7 @@ function App() {
   // the value of the token is a dependency for this effect.
 
   useEffect(function loadFamilyInfo() {
-    console.debug("App useEffect loadUserInfo", "token=", token);
+    // console.debug("App useEffect loadFamilyInfo", "token=", token);
 
     async function getCurrentFamily() {
       if (token) {
