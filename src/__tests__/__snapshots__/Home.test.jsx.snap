@@ -1,38 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Home > matches snapshot 1`] = `
-<DocumentFragment>
-  <div
-    id="Home-main"
-  >
-    <div
-      id="Home-message"
-    >
-      <div>
-        <h1
-          class="Home-title text-center"
-        >
-          The Smith Family Dashboard
-        </h1>
-        <ul
-          class="list-group"
-        />
-        <a
-          class=""
-          href="/add"
-        >
-          <button
-            class="Home-addMember btn-dark m-3 btn btn-secondary"
-          >
-            Add Member
-          </button>
-        </a>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
 exports[`Home when logged out > matches snapshot when logged out 1`] = `
 <DocumentFragment>
   <div

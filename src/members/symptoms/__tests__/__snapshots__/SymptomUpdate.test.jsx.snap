@@ -60,7 +60,7 @@ exports[`SymptomUpdate > matches snapshot 1`] = `
       <input
         class="form-control"
         id="startDate"
-        max="2024-08-05"
+        max="2024-08-06"
         name="startDate"
         type="date"
         value=""
@@ -80,7 +80,7 @@ exports[`SymptomUpdate > matches snapshot 1`] = `
       <input
         class="form-control"
         id="endDate"
-        max="2024-08-05"
+        max="2024-08-06"
         name="endDate"
         type="date"
         value=""

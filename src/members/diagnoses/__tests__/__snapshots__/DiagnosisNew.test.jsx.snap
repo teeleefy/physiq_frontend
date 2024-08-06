@@ -61,7 +61,7 @@ exports[`DiagnosisNew > matches snapshot 1`] = `
       <input
         class="form-control"
         id="dateReceived"
-        max="2024-08-05"
+        max="2024-08-06"
         name="dateReceived"
         placeholder="Enter date received..."
         type="date"

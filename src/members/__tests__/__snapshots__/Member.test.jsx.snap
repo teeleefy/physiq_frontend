@@ -87,7 +87,7 @@ exports[`Member > matches snapshot 1`] = `
       <input
         class="form-control"
         id="birthday"
-        max="2024-08-05"
+        max="2024-08-06"
         name="birthday"
         type="date"
         value="1980-09-03"
