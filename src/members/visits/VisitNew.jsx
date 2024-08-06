@@ -20,6 +20,7 @@ function VisitNew(){
     useEffect(function getMemberDoctors(){
         async function getDoctors() {
           let doctors = await PhysiqApi.getMemberDoctors(currentMember.id);
+          console.log(doctors);
           setDoctors(doctors);
           setIsLoading(false); 
         }
@@ -39,6 +40,7 @@ function VisitNew(){
 
     async function handleSubmit(evt){
         evt.preventDefault();
+        // console.log(formData);
         let result = await addVisit();
         
         if(result.success){
