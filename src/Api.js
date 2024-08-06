@@ -18,7 +18,7 @@ class PhysiqApi {
   
     static async request(endpoint, data = {}, method = "get") {
       // console.debug("API Call:", endpoint, data, method);
-      // console.debug("API Call:", endpoint, method);
+      console.debug("API Call:", endpoint, method);
   
       
       const url = `${BASE_URL}/${endpoint}`;
