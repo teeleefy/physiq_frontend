@@ -1,6 +1,8 @@
 import axios from "axios";
 
 let BASE_URL = "https://physiq-backend.onrender.com";
+
+//uncomment out the line below to connect to your own local backend through the environmental variable "VITE_APP_BASE_URL" or by port 3001
 // let BASE_URL = process.env.VITE_APP_BASE_URL ? process.env.VITE_APP_BASE_URL : "http://localhost:3001";
 
 /** API Class.
