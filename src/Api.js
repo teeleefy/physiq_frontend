@@ -1,6 +1,7 @@
 import axios from "axios";
 
-let BASE_URL = process.env.VITE_APP_BASE_URL ? process.env.VITE_APP_BASE_URL : "http://localhost:3001";
+let BASE_URL = "https://physiq-backend.onrender.com";
+// let BASE_URL = process.env.VITE_APP_BASE_URL ? process.env.VITE_APP_BASE_URL : "http://localhost:3001";
 
 /** API Class.
  *
